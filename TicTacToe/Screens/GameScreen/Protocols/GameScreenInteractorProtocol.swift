@@ -8,9 +8,10 @@
 protocol GameScreenInteractorProtocol {
     var presenter: GameScreenPresenterProtocol? { get set }
     
-    func saveNewShape(row: Int, column: Int)
-    func moveToNextPlayer()
+    func playerEndingTurn(row: Int, column: Int)
     func checkPossibleMoveInGame(row: Int, column: Int) -> Bool
     func getCurrentPlayerShape() -> PlayerShapeType
     func getNameCurrentPlayer() -> String
+    func sendGameOver(playerShape: PlayerShapeType)
+    func sendGameOver()
 }

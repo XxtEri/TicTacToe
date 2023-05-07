@@ -18,16 +18,39 @@ final class GameScreenInteractor {
         businessLogic = GameBusinessLogic()
         nameFirstPlayer = "Nana"
         nameSecondPlayer = "Bla"
+        
+        handler()
+    }
+    
+    private func handler() {
+        businessLogic.gameOverWinHandler = { [ weak self ] winPlayerShape in
+            guard let self = self else { return }
+            
+            
+        }
+        
+        businessLogic.gameOverDrawHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            
+        }
     }
 }
 
-extension GameScreenInteractor: GameScreenInteractorProtocol {
+private extension GameScreenInteractor {
     func saveNewShape(row: Int, column: Int) {
         businessLogic.saveNewShape(row: row, column: column)
     }
     
     func moveToNextPlayer() {
         businessLogic.changeCurrentPlayer()
+    }
+}
+
+extension GameScreenInteractor: GameScreenInteractorProtocol {
+    func playerEndingTurn(row: Int, column: Int) {
+        saveNewShape(row: row, column: column)
+        moveToNextPlayer()
     }
     
     func checkPossibleMoveInGame(row: Int, column: Int) -> Bool {
@@ -42,7 +65,12 @@ extension GameScreenInteractor: GameScreenInteractorProtocol {
         businessLogic.getCurrentPlayerShape() == .cross ? nameFirstPlayer : nameSecondPlayer
     }
     
-    func checkIfGameOver() -> Bool {
-        businessLogic.checkPresenseNonShape()
+    func sendGameOver(playerShape: PlayerShapeType) {
+        let nameWinner = playerShape == .cross ? nameFirstPlayer : nameSecondPlayer
+        presenter?.sendGameOver(nameWinner: nameWinner)
+    }
+    
+    func sendGameOver() {
+        presenter?.sendGameOver()
     }
 }

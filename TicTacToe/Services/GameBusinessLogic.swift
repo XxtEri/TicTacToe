@@ -11,6 +11,9 @@ class GameBusinessLogic {
     var gameMatrix = [[PlayerShapeType]]()
     var nowTurnPlayerShape: PlayerShapeType
     
+    var gameOverWinHandler: ((PlayerShapeType) -> Void)?
+    var gameOverDrawHandler: (() -> Void)?
+    
     init() {
         nowTurnPlayerShape = .cross
         
@@ -106,14 +109,21 @@ class GameBusinessLogic {
     
     func saveNewShape(row: Int, column: Int) {
         gameMatrix[row - 1][column - 1] = nowTurnPlayerShape
-        let _ = checkPresenseWinnerPosition()
+        
+        if checkPresenseWinnerPosition() {
+            gameOverWinHandler?(nowTurnPlayerShape)
+        }
+        
+        if checkIfGameOver() {
+            gameOverDrawHandler?()
+        }
     }
     
     func checkPossibleMoveInGame(row: Int, column: Int) -> Bool {
         gameMatrix[row - 1][column - 1] == .non ? true : false
     }
     
-    func checkPresenseNonShape() -> Bool {
+    func checkIfGameOver() -> Bool {
         for row in gameMatrix {
             for cell in row {
                 if cell == .non {
@@ -130,7 +140,6 @@ class GameBusinessLogic {
             checkPresenseWinnerPositionOnByColumn() ||
             checkPresenseWinnerPositionOnDiagonals() {
             
-            print("Game over")
             return true
         }
         

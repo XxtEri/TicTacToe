@@ -14,4 +14,6 @@ protocol GameScreenPresenterProtocol: AnyObject {
     
     func touchInGameField(x: CGFloat, y: CGFloat, sizeFieldGame: CGFloat)
     func addImage(positionX: CGFloat, positionY: CGFloat)
+    func sendGameOver(nameWinner: String)
+    func sendGameOver()
 }
