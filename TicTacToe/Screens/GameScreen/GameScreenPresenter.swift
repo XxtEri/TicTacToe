@@ -90,10 +90,10 @@ extension GameScreenPresenter: GameScreenPresenterProtocol {
     }
     
     func sendGameOver(nameWinner: String) {
-        //TODO: сказать вьюхе отобразить пользователям, что кто-то победил
+        view?.finishGame(nameWinner: nameWinner)
     }
     
     func sendGameOver() {
-        //TODO: сказать вьюхе отобразить пользователям, что у них ничья
+        view?.finishGame()
     }
 }

@@ -19,4 +19,8 @@ extension UIColor {
     static var backgroundLineOnFieldGame: UIColor {
         #colorLiteral(red: 0.2980392157, green: 0.3254901961, blue: 0.3254901961, alpha: 1)
     }
+    
+    static var tintColorAlert: UIColor {
+        #colorLiteral(red: 0, green: 0.5853833556, blue: 0.5552360415, alpha: 1)
+    }
 }

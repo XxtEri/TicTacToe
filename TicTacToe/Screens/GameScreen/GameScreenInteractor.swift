@@ -26,13 +26,13 @@ final class GameScreenInteractor {
         businessLogic.gameOverWinHandler = { [ weak self ] winPlayerShape in
             guard let self = self else { return }
             
-            
+            self.sendGameOver(playerShape: winPlayerShape)
         }
         
         businessLogic.gameOverDrawHandler = { [ weak self ] in
             guard let self = self else { return }
             
-            
+            self.sendGameOver()
         }
     }
 }
