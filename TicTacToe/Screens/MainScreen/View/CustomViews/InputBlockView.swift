@@ -19,7 +19,7 @@ class InputBlockView: UIView {
         return view
     }()
 
-    private var inputField: UICustomTextField = {
+    var inputField: UICustomTextField = {
         var view = UICustomTextField()
         view = view.getCustomTextField(placeholder: "Введите имя")
         
@@ -36,14 +36,27 @@ class InputBlockView: UIView {
         fatalError("error")
     }
     
-    private func setup() {
-        self.addSubview(titleInputBlock)
-        self.addSubview(inputField)
-        
+    func setTitleInputBlock(title: String) {
+        titleInputBlock.text = title
+    }
+    
+    func getNamePlayer() -> String {
+        inputField.text ?? ""
+    }
+}
+
+private extension InputBlockView {
+    func setup() {
+        addViews()
         configureConstraints()
     }
     
-    private func configureConstraints() {
+    func addViews() {
+        self.addSubview(titleInputBlock)
+        self.addSubview(inputField)
+    }
+    
+    func configureConstraints() {
         titleInputBlock.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.top.equalToSuperview()
@@ -56,7 +69,12 @@ class InputBlockView: UIView {
         }
     }
     
-    func setTitleInputBlock(title: String) {
-        titleInputBlock.text = title
+    func configureActions() {
+        inputField.addTarget(self, action: #selector(editInputTextField), for: .editingChanged)
+    }
+    
+    @objc
+    func editInputTextField() {
+        
     }
 }

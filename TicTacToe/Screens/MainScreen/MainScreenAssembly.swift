@@ -14,7 +14,8 @@ enum MainScreenAssembly {
     }
     
     static func build(with parameters: Parameters) -> UIViewController {
-        let router = MainScreenRouter()
+        let router = MainScreenRouter(goToGameScreenHandler: parameters.goToGameScreenHandler,
+                                      goToRulesScreenHandler: parameters.goToRulesScreenHandler)
         let interactor = MainScreenInteractor()
         let presenter = MainScreenPresenter(interactor: interactor, router: router)
         let viewController = MainScreenViewController(presenter: presenter)
