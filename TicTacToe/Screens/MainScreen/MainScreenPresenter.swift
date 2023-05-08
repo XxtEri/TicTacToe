@@ -25,6 +25,7 @@ extension MainScreenPresenter: MainScreenPresenterProtocol {
         guard let checkError = try? interactor.checkErrorValidData(firstPlayer: firstPlayer, secondPlayer: secondPlayer) else { return }
         
         if !checkError {
+            interactor.saveNamePlayers(nameFirstPlayer: firstPlayer.name, nameSecondPlayer: secondPlayer.name)
             router.goToGameScreen()
         }
     }
