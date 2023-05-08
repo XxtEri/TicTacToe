@@ -41,10 +41,16 @@ class MainScreenViewController: UIViewController {
             self.presenter.startGameButtonTapped(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
         }
         
-        ui.editNamesHandler = { [ weak self ] (firstPlayer, secondPlayer)  in
+        ui.editNamesHandler = { [ weak self ] (firstPlayer, secondPlayer) in
             guard let self = self else { return }
             
             self.presenter.checkValidData(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
+        }
+        
+        ui.rulesLabelTappedHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.presenter.router.goToRulesScreen()
         }
     }
 }

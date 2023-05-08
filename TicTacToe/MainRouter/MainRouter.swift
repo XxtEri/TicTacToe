@@ -30,7 +30,9 @@ extension MainRouter {
         }
         
         let goToRulesScreenHandler = { [ weak self ] in
-            //TODO: добавить функцию для перехода на экран с правилами игры
+            guard let self = self else { return }
+            
+            self.showRulesScreen()
         }
         
         let parameters = MainScreenAssembly.Parameters(goToGameScreenHandler: goToGameScreenHandler,
@@ -45,6 +47,19 @@ extension MainRouter {
     
     func showGameScreen() {
         let viewController = GameScreenAssembly.build()
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func showRulesScreen() {
+        let goToMainScreenHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.showMainScreen()
+        }
+        
+        let parameters = RulesScreenAssembly.Parameters(goToMainScreenHandler: goToMainScreenHandler)
+        let viewController = RulesScreenAssembly.build(with: parameters)
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
