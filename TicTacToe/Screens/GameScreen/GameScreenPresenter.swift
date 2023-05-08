@@ -18,11 +18,14 @@ class GameScreenPresenter {
     var router: GameScreenRouterProtocol
     weak var view: GameScreenViewControllerProtocol?
     
+    var nameCurrentPlayerTurning = Observable<String>()
+    
     init(interactor: GameScreenInteractorProtocol, router: GameScreenRouterProtocol) {
         self.interactor = interactor
         self.router = router
+        
+        updateNameCurrentPlayerTurning()
     }
-    
 }
 
 private extension GameScreenPresenter {
@@ -35,6 +38,10 @@ private extension GameScreenPresenter {
 }
 
 extension GameScreenPresenter: GameScreenPresenterProtocol {
+    func updateNameCurrentPlayerTurning() {
+        nameCurrentPlayerTurning.updateModel(with: interactor.getNameCurrentPlayer())
+    }
+    
     func touchInGameField(x: CGFloat, y: CGFloat, sizeFieldGame: CGFloat) {
         let infoTappedCell = getInfoTappedCell(x: x, y: y, sizeFieldGame: sizeFieldGame)
         let row = infoTappedCell.0
@@ -75,7 +82,6 @@ extension GameScreenPresenter: GameScreenPresenterProtocol {
         if interactor.checkPossibleMoveInGame(row: row, column: column) {
             addImage(positionX: positionX, positionY: positionY)
             interactor.playerEndingTurn(row: row, column: column)
-            changeNameLabel(nameCurrentPlayer: interactor.getNameCurrentPlayer())
         }
     }
     
@@ -83,10 +89,6 @@ extension GameScreenPresenter: GameScreenPresenterProtocol {
         let currentShape = interactor.getCurrentPlayerShape()
 
         currentShape == .cross ? view?.addCrossImage(positionX: positionX, positionY: positionY) : view?.addCircleImage(positionX: positionX, positionY: positionY)
-    }
-    
-    func changeNameLabel(nameCurrentPlayer: String) {
-        view?.changeNameLabel(nameCurrentPlayer: nameCurrentPlayer)
     }
     
     func sendGameOver(nameWinner: String) {

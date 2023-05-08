@@ -33,19 +33,10 @@ class GameScreenViewController: UIViewController {
         super.viewDidLoad()
         
         handler()
-    }
-}
-
-private extension GameScreenViewController {
-    func handler() {
-        ui.fieldGameView.fieldGameTapped = { [ weak self ] (x, y, sizeFieldGame) in
-            guard let self = self else { return }
-            
-            self.presenter.touchInGameField(x: x, y: y, sizeFieldGame: sizeFieldGame)
-        }
+        bindings()
     }
     
-    func showAlert(title: String, message: String?) {
+    private func showAlert(title: String, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.editButtonItem.tintColor = .accentColorApplication
         
@@ -61,6 +52,24 @@ private extension GameScreenViewController {
     }
 }
 
+private extension GameScreenViewController {
+    func handler() {
+        ui.fieldGameView.fieldGameTapped = { [ weak self ] (x, y, sizeFieldGame) in
+            guard let self = self else { return }
+            
+            self.presenter.touchInGameField(x: x, y: y, sizeFieldGame: sizeFieldGame)
+        }
+    }
+    
+    func bindings() {
+        presenter.nameCurrentPlayerTurning.subscribe { [ weak self ] name in
+            guard let self = self else { return }
+            
+            self.ui.setNamePlayerLabel(name: name)
+        }
+    }
+}
+
 extension GameScreenViewController: GameScreenViewControllerProtocol {
     func addCrossImage(positionX: CGFloat, positionY: CGFloat) {
         ui.fieldGameView.addCrossImage(positionX: positionX, positionY: positionY)
@@ -68,10 +77,6 @@ extension GameScreenViewController: GameScreenViewControllerProtocol {
     
     func addCircleImage(positionX: CGFloat, positionY: CGFloat) {
         ui.fieldGameView.addCircleImage(positionX: positionX, positionY: positionY)
-    }
-    
-    func changeNameLabel(nameCurrentPlayer: String) {
-        ui.setNamePlayerLabel(name: nameCurrentPlayer)
     }
     
     func finishGame(nameWinner: String) {

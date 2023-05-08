@@ -50,6 +50,10 @@ extension GameScreenInteractor: GameScreenInteractorProtocol {
     func playerEndingTurn(row: Int, column: Int) {
         saveNewShape(row: row, column: column)
         moveToNextPlayer()
+        
+        if !businessLogic.checkPresenseWinnerPosition() {
+            presenter?.updateNameCurrentPlayerTurning()
+        }
     }
     
     func checkPossibleMoveInGame(row: Int, column: Int) -> Bool {

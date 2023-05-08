@@ -12,7 +12,6 @@ protocol GameScreenViewControllerProtocol: AnyObject {
     
     func addCrossImage(positionX: CGFloat, positionY: CGFloat)
     func addCircleImage(positionX: CGFloat, positionY: CGFloat)
-    func changeNameLabel(nameCurrentPlayer: String)
     func finishGame(nameWinner: String)
     func finishGame()
 }
