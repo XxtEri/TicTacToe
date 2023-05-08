@@ -98,6 +98,7 @@ extension GameScreenPresenter: GameScreenPresenterProtocol {
     }
     
     func goToMainScreen() {
+        interactor.clearData()
         router.goToMainScreen()
     }
     

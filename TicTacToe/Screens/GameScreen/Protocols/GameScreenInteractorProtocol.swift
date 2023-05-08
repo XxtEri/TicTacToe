@@ -14,4 +14,5 @@ protocol GameScreenInteractorProtocol {
     func getNameCurrentPlayer() -> String
     func sendGameOver(playerShape: PlayerShapeType)
     func sendGameOver()
+    func clearData()
 }
