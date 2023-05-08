@@ -27,6 +27,11 @@ class MainScreenViewController: UIViewController {
         self.view = ui
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.presenter.checkValidData(firstPlayer: Player(name: ui.getNameFirstPlayer()),
+                                 secondPlayer: Player(name: ui.getNameSecondPlayer()))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

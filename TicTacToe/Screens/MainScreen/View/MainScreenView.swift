@@ -66,7 +66,6 @@ class MainScreenView: UIView {
         view.layer.borderColor = UIColor.borderStartGameButton.cgColor
         view.layer.borderWidth = 2
         view.contentEdgeInsets = UIEdgeInsets(top: 13, left: 10, bottom: 13, right: 10)
-        view.isEnabled = false
         
         return view
     }()
@@ -100,6 +99,14 @@ class MainScreenView: UIView {
             startPlayButton.layer.borderColor = nil
             startPlayButton.backgroundColor = .accentColorApplication
         }
+    }
+    
+    func getNameFirstPlayer() -> String {
+        inputBlockFirstPlayer.getNamePlayer()
+    }
+    
+    func getNameSecondPlayer() -> String {
+        inputBlockSecondPlayer.getNamePlayer()
     }
 }
 
