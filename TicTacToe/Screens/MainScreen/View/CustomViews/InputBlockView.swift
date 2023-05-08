@@ -59,4 +59,8 @@ class InputBlockView: UIView {
     func setTitleInputBlock(title: String) {
         titleInputBlock.text = title
     }
+    
+    func getNamePlayer() -> String {
+        inputField.text ?? ""
+    }
 }

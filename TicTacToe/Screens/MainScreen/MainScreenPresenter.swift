@@ -19,5 +19,21 @@ class MainScreenPresenter {
 }
 
 extension MainScreenPresenter: MainScreenPresenterProtocol {
+    func startGameButtonTapped(firstPlayer: Player, secondPlayer: Player) {
+        view?.setEnabledButton(enabled: false)
+        
+        guard let checkError = try? interactor.checkErrorValidData(firstPlayer: firstPlayer, secondPlayer: secondPlayer) else { return }
+        
+        if !checkError {
+            router.goToGameScreen()
+        }
+    }
     
+    func rulesLabelTapped() {
+        router.goToRulesScreen()
+    }
+    
+    func sendErrorMessages(_ errorMessages: [String]) {
+        view?.showErrorMessages(errorMessages)
+    }
 }

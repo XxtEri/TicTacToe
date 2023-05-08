@@ -31,7 +31,15 @@ class MainScreenViewController: UIViewController {
         super.viewDidLoad()
         
         setupToHideKeyboardOnTapOnView()
-        
+        handler()
+    }
+    
+    private func handler() {
+        ui.startGameButtonTappedHandler = { [ weak self ] (firstPlayer, secondPlayer)  in
+            guard let self = self else { return }
+            
+            self.presenter.startGameButtonTapped(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
+        }
     }
 }
 
@@ -53,5 +61,27 @@ private extension MainScreenViewController {
 }
 
 extension MainScreenViewController: MainScreenViewControllerProtocol {
+    func setEnabledButton(enabled: Bool) {
+        ui.setEnabledStarGameButton(enabled: enabled)
+    }
     
+    func showErrorMessages(_ errorMessages: [String]) {
+        var errors = String()
+        
+        errorMessages.forEach { message in
+            errors.append("\n" + message + "\n")
+        }
+        
+        let alertController = UIAlertController(title: "Внимание!", message: errors, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Закрыть", style: .cancel) { [ weak self ] action in
+            guard let self = self else { return }
+            
+            self.setEnabledButton(enabled: true)
+        }
+        
+        alertController.addAction(action)
+        alertController.view.tintColor = .accentColorApplication
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

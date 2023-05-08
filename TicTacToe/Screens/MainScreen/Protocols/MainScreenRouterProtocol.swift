@@ -6,5 +6,6 @@
 //
 
 protocol MainScreenRouterProtocol {
-    
+    func goToRulesScreen()
+    func goToGameScreen()
 }

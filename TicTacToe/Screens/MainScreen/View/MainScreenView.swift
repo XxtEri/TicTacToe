@@ -56,7 +56,7 @@ class MainScreenView: UIView {
         return view
     }()
     
-    private var buttonStartPlayButton: UIButton = {
+    private var startPlayButton: UIButton = {
         let view = UIButton()
         view.setTitle("Начать играть", for: .normal)
         view.setTitleColor(.white, for: .normal)
@@ -68,6 +68,8 @@ class MainScreenView: UIView {
         
         return view
     }()
+    
+    var startGameButtonTappedHandler: ((Player, Player) -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,6 +79,10 @@ class MainScreenView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("error")
+    }
+    
+    func setEnabledStarGameButton(enabled: Bool) {
+        startPlayButton.isEnabled = enabled
     }
 }
 
@@ -92,7 +98,7 @@ extension MainScreenView {
         self.addSubview(rulesTitleLabel)
         self.addSubview(welcomeLabel)
         self.addSubview(infoLabel)
-        self.addSubview(buttonStartPlayButton)
+        self.addSubview(startPlayButton)
         self.addSubview(inputBlockFirstPlayer)
         self.addSubview(inputBlockSecondPlayer)
     }
@@ -127,13 +133,21 @@ extension MainScreenView {
             make.top.equalTo(inputBlockFirstPlayer.snp.bottom).offset(20)
         }
         
-        buttonStartPlayButton.snp.makeConstraints { make in
+        startPlayButton.snp.makeConstraints { make in
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).inset(15)
             make.horizontalEdges.equalToSuperview().inset(16)
         }
     }
     
     func configureActions() {
+        startPlayButton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func startGameButtonTapped() {
+        let firstPlayer = Player(name: inputBlockFirstPlayer.getNamePlayer())
+        let secondPlayer = Player(name: inputBlockSecondPlayer.getNamePlayer())
         
+        startGameButtonTappedHandler?(firstPlayer, secondPlayer)
     }
 }
