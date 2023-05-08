@@ -71,7 +71,7 @@ class GameBusinessLogic {
         return false
     }
     
-    private func checkPresenseWinnerPositionOnDiagonals() -> Bool {
+    private func checkPresenseWinnerPositionOnFirstDiagonal() -> Bool {
         var isWin = true
         
         if gameMatrix[0][0] == .non {
@@ -89,7 +89,12 @@ class GameBusinessLogic {
             return true
         }
         
-        isWin = true
+        return false
+    }
+    
+    private func checkPresenseWinnerPositionOnSecondDiagonal() -> Bool {
+        var isWin = true
+        
         if gameMatrix[0][gameMatrix.count - 1] == .non {
             return false
         }
@@ -139,7 +144,8 @@ class GameBusinessLogic {
     func checkPresenseWinnerPosition() -> Bool {
         if checkPresenseWinnerPositionOnByRow() ||
             checkPresenseWinnerPositionOnByColumn() ||
-            checkPresenseWinnerPositionOnDiagonals() {
+            checkPresenseWinnerPositionOnFirstDiagonal() ||
+            checkPresenseWinnerPositionOnSecondDiagonal() {
             
             return true
         }
