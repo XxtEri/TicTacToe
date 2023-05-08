@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F304A6B12A08B71500A8EBFF /* MainScreenValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304A6B02A08B71500A8EBFF /* MainScreenValidator.swift */; };
 		F304A6B42A08BB6800A8EBFF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304A6B32A08BB6800A8EBFF /* Player.swift */; };
+		F304A6B92A08D3D400A8EBFF /* RulesScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304A6B82A08D3D400A8EBFF /* RulesScreenAssembly.swift */; };
+		F304A6BC2A08D3EB00A8EBFF /* RulesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304A6BB2A08D3EB00A8EBFF /* RulesScreenPresenter.swift */; };
+		F304A6BE2A08D3F400A8EBFF /* RulesScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304A6BD2A08D3F400A8EBFF /* RulesScreenInteractor.swift */; };
+		F304A6C02A08D40000A8EBFF /* RulesScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304A6BF2A08D40000A8EBFF /* RulesScreenRouter.swift */; };
 		F3AF05852A078C22001ED9E5 /* GameScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF05842A078C22001ED9E5 /* GameScreenView.swift */; };
 		F3AF05882A078DFF001ED9E5 /* Zekton.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AF05872A078DFF001ED9E5 /* Zekton.ttf */; };
 		F3AF058B2A078E9F001ED9E5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF058A2A078E9F001ED9E5 /* ColorExtension.swift */; };
@@ -44,11 +48,22 @@
 		F3E0F9C82A0776CF001ED468 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C72A0776CF001ED468 /* GameScreenViewController.swift */; };
 		F3E0F9CD2A0776D1001ED468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E0F9CC2A0776D1001ED468 /* Assets.xcassets */; };
 		F3E0F9D02A0776D1001ED468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3E0F9CE2A0776D1001ED468 /* LaunchScreen.storyboard */; };
+		F3E9453A2A08D7FF00837C2A /* RulesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945392A08D7FF00837C2A /* RulesScreenView.swift */; };
+		F3E9453C2A08D80900837C2A /* RulesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9453B2A08D80900837C2A /* RulesScreenViewController.swift */; };
+		F3E9453E2A08D83200837C2A /* RulesScreenPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9453D2A08D83200837C2A /* RulesScreenPresenterProtocol.swift */; };
+		F3E945402A08D83D00837C2A /* RulesScreenInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9453F2A08D83D00837C2A /* RulesScreenInteractorProtocol.swift */; };
+		F3E945422A08D84400837C2A /* RulesScreenRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945412A08D84400837C2A /* RulesScreenRouterProtocol.swift */; };
+		F3E945442A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945432A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift */; };
+		F3E945472A08DCA600837C2A /* BlockTitleWithTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945462A08DCA600837C2A /* BlockTitleWithTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F304A6B02A08B71500A8EBFF /* MainScreenValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenValidator.swift; sourceTree = "<group>"; };
 		F304A6B32A08BB6800A8EBFF /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F304A6B82A08D3D400A8EBFF /* RulesScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenAssembly.swift; sourceTree = "<group>"; };
+		F304A6BB2A08D3EB00A8EBFF /* RulesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenPresenter.swift; sourceTree = "<group>"; };
+		F304A6BD2A08D3F400A8EBFF /* RulesScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenInteractor.swift; sourceTree = "<group>"; };
+		F304A6BF2A08D40000A8EBFF /* RulesScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenRouter.swift; sourceTree = "<group>"; };
 		F3AF05842A078C22001ED9E5 /* GameScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenView.swift; sourceTree = "<group>"; };
 		F3AF05872A078DFF001ED9E5 /* Zekton.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zekton.ttf; sourceTree = "<group>"; };
 		F3AF058A2A078E9F001ED9E5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -85,6 +100,13 @@
 		F3E0F9CC2A0776D1001ED468 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3E0F9CF2A0776D1001ED468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3E0F9D12A0776D1001ED468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3E945392A08D7FF00837C2A /* RulesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenView.swift; sourceTree = "<group>"; };
+		F3E9453B2A08D80900837C2A /* RulesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenViewController.swift; sourceTree = "<group>"; };
+		F3E9453D2A08D83200837C2A /* RulesScreenPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenPresenterProtocol.swift; sourceTree = "<group>"; };
+		F3E9453F2A08D83D00837C2A /* RulesScreenInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenInteractorProtocol.swift; sourceTree = "<group>"; };
+		F3E945412A08D84400837C2A /* RulesScreenRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenRouterProtocol.swift; sourceTree = "<group>"; };
+		F3E945432A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenViewControllerProtocol.swift; sourceTree = "<group>"; };
+		F3E945462A08DCA600837C2A /* BlockTitleWithTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTitleWithTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +135,40 @@
 				F304A6B32A08BB6800A8EBFF /* Player.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F304A6B52A08D3AB00A8EBFF /* RulesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F304A6B72A08D3BE00A8EBFF /* Protocols */,
+				F304A6B82A08D3D400A8EBFF /* RulesScreenAssembly.swift */,
+				F304A6B62A08D3B800A8EBFF /* View */,
+				F304A6BB2A08D3EB00A8EBFF /* RulesScreenPresenter.swift */,
+				F304A6BD2A08D3F400A8EBFF /* RulesScreenInteractor.swift */,
+				F304A6BF2A08D40000A8EBFF /* RulesScreenRouter.swift */,
+			);
+			path = RulesScreen;
+			sourceTree = "<group>";
+		};
+		F304A6B62A08D3B800A8EBFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3E9453B2A08D80900837C2A /* RulesScreenViewController.swift */,
+				F3E945392A08D7FF00837C2A /* RulesScreenView.swift */,
+				F3E945452A08DC8A00837C2A /* CustomViews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F304A6B72A08D3BE00A8EBFF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F3E945432A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift */,
+				F3E9453D2A08D83200837C2A /* RulesScreenPresenterProtocol.swift */,
+				F3E9453F2A08D83D00837C2A /* RulesScreenInteractorProtocol.swift */,
+				F3E945412A08D84400837C2A /* RulesScreenRouterProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F3AF05822A078B20001ED9E5 /* Storyboards */ = {
@@ -295,6 +351,7 @@
 			children = (
 				F3AF05822A078B20001ED9E5 /* Storyboards */,
 				F3B1C9AF2A08A21800CA9669 /* MainScreen */,
+				F304A6B52A08D3AB00A8EBFF /* RulesScreen */,
 				F3AF05832A078B44001ED9E5 /* GameScreen */,
 				F3AF05892A078E8B001ED9E5 /* Extensions */,
 			);
@@ -309,6 +366,14 @@
 				F3E0F9D12A0776D1001ED468 /* Info.plist */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		F3E945452A08DC8A00837C2A /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				F3E945462A08DCA600837C2A /* BlockTitleWithTextView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,8 +455,11 @@
 			files = (
 				F3AF05852A078C22001ED9E5 /* GameScreenView.swift in Sources */,
 				F3AF05952A07A180001ED9E5 /* GameScreenViewControllerProtocol.swift in Sources */,
+				F3E9453E2A08D83200837C2A /* RulesScreenPresenterProtocol.swift in Sources */,
 				F3AF05922A079FE7001ED9E5 /* FieldGameView.swift in Sources */,
+				F3E945472A08DCA600837C2A /* BlockTitleWithTextView.swift in Sources */,
 				F3B1C9BC2A08A2D800CA9669 /* MainScreenRouter.swift in Sources */,
+				F3E9453A2A08D7FF00837C2A /* RulesScreenView.swift in Sources */,
 				F3E0F9C82A0776CF001ED468 /* GameScreenViewController.swift in Sources */,
 				F3AF05A62A07B0BD001ED9E5 /* GameScreenRouter.swift in Sources */,
 				F3B1C9BA2A08A2D100CA9669 /* MainScreenInteractor.swift in Sources */,
@@ -400,26 +468,34 @@
 				F3AF05AA2A07B0D4001ED9E5 /* GameScreenRouterProtocol.swift in Sources */,
 				F3E0F9C42A0776CF001ED468 /* AppDelegate.swift in Sources */,
 				F3AF059A2A07A4A3001ED9E5 /* GameScreenPresenterProtocol.swift in Sources */,
+				F3E9453C2A08D80900837C2A /* RulesScreenViewController.swift in Sources */,
 				F3E0F9C62A0776CF001ED468 /* SceneDelegate.swift in Sources */,
+				F3E945442A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift in Sources */,
 				F3AF059E2A07AE3F001ED9E5 /* MainRouterProtocol.swift in Sources */,
 				F3B1C9BF2A08A43400CA9669 /* MainScreenViewControllerProtocol.swift in Sources */,
 				F3B1C9C52A08A45A00CA9669 /* MainScreenRouterProtocol.swift in Sources */,
+				F304A6BE2A08D3F400A8EBFF /* RulesScreenInteractor.swift in Sources */,
 				F3B1C9CA2A08AC1500CA9669 /* InputBlockView.swift in Sources */,
 				F3AF05AE2A07B169001ED9E5 /* LineInFieldGame.swift in Sources */,
 				F3AF05BA2A07EAE7001ED9E5 /* GameBusinessLogic.swift in Sources */,
+				F304A6B92A08D3D400A8EBFF /* RulesScreenAssembly.swift in Sources */,
 				F3AF05972A07A473001ED9E5 /* GameScreenPresenter.swift in Sources */,
+				F3E945402A08D83D00837C2A /* RulesScreenInteractorProtocol.swift in Sources */,
 				F3B1C9B82A08A2B400CA9669 /* MainScreenPresenter.swift in Sources */,
 				F3AF05B32A07CC8E001ED9E5 /* PlayerShapeType.swift in Sources */,
 				F304A6B42A08BB6800A8EBFF /* Player.swift in Sources */,
 				F3AF05A22A07B09F001ED9E5 /* GameScreenAssembly.swift in Sources */,
 				F3B1C9B42A08A28600CA9669 /* MainScreenView.swift in Sources */,
+				F304A6BC2A08D3EB00A8EBFF /* RulesScreenPresenter.swift in Sources */,
 				F3B1C9C12A08A44000CA9669 /* MainScreenPresenterProtocol.swift in Sources */,
 				F3B1C9B12A08A23900CA9669 /* MainScreenAssembly.swift in Sources */,
 				F3AF05A82A07B0CA001ED9E5 /* GameScreenInteractorProtocol.swift in Sources */,
+				F304A6C02A08D40000A8EBFF /* RulesScreenRouter.swift in Sources */,
 				F3B1C9B62A08A29700CA9669 /* MainScreenViewController.swift in Sources */,
 				F3AF05A02A07AE45001ED9E5 /* MainRouter.swift in Sources */,
 				F3AF058B2A078E9F001ED9E5 /* ColorExtension.swift in Sources */,
 				F3B1C9C32A08A44D00CA9669 /* MainScreenInteractorProtocol.swift in Sources */,
+				F3E945422A08D84400837C2A /* RulesScreenRouterProtocol.swift in Sources */,
 				F304A6B12A08B71500A8EBFF /* MainScreenValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

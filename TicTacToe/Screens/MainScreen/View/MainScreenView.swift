@@ -16,6 +16,7 @@ class MainScreenView: UIView {
         view.textColor = .rulesTitle
         view.font = UIFont(name: "Zekton", size: 14)
         view.textAlignment = .right
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -49,7 +50,7 @@ class MainScreenView: UIView {
         return view
     }()
     
-    var inputBlockSecondPlayer: InputBlockView = {
+    private var inputBlockSecondPlayer: InputBlockView = {
         let view = InputBlockView()
         view.setTitleInputBlock(title: "Второй игрок")
         
@@ -71,6 +72,7 @@ class MainScreenView: UIView {
     }()
     
     var startGameButtonTappedHandler: ((Player, Player) -> Void)?
+    var rulesLabelTappedHandler: (() -> Void)?
     var editNamesHandler: ((Player, Player) -> Void)?
 
     override init(frame: CGRect) {
@@ -156,6 +158,7 @@ extension MainScreenView {
     
     func configureActions() {
         startPlayButton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
+        rulesTitleLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(rulesLabelTapped)))
         inputBlockFirstPlayer.inputField.addTarget(self, action: #selector(editNamePlayers), for: .editingChanged)
         inputBlockSecondPlayer.inputField.addTarget(self, action: #selector(editNamePlayers), for: .editingChanged)
     }
@@ -166,6 +169,11 @@ extension MainScreenView {
         let secondPlayer = Player(name: inputBlockSecondPlayer.getNamePlayer())
         
         startGameButtonTappedHandler?(firstPlayer, secondPlayer)
+    }
+    
+    @objc
+    func rulesLabelTapped() {
+        rulesLabelTappedHandler?()
     }
     
     @objc
