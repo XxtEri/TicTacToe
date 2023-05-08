@@ -25,6 +25,18 @@
 		F3AF05AE2A07B169001ED9E5 /* LineInFieldGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF05AD2A07B169001ED9E5 /* LineInFieldGame.swift */; };
 		F3AF05B32A07CC8E001ED9E5 /* PlayerShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF05B22A07CC8E001ED9E5 /* PlayerShapeType.swift */; };
 		F3AF05BA2A07EAE7001ED9E5 /* GameBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */; };
+		F3B1C9B12A08A23900CA9669 /* MainScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9B02A08A23900CA9669 /* MainScreenAssembly.swift */; };
+		F3B1C9B42A08A28600CA9669 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9B32A08A28600CA9669 /* MainScreenView.swift */; };
+		F3B1C9B62A08A29700CA9669 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9B52A08A29700CA9669 /* MainScreenViewController.swift */; };
+		F3B1C9B82A08A2B400CA9669 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9B72A08A2B400CA9669 /* MainScreenPresenter.swift */; };
+		F3B1C9BA2A08A2D100CA9669 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9B92A08A2D100CA9669 /* MainScreenInteractor.swift */; };
+		F3B1C9BC2A08A2D800CA9669 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9BB2A08A2D800CA9669 /* MainScreenRouter.swift */; };
+		F3B1C9BF2A08A43400CA9669 /* MainScreenViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9BE2A08A43400CA9669 /* MainScreenViewControllerProtocol.swift */; };
+		F3B1C9C12A08A44000CA9669 /* MainScreenPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C02A08A44000CA9669 /* MainScreenPresenterProtocol.swift */; };
+		F3B1C9C32A08A44D00CA9669 /* MainScreenInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C22A08A44D00CA9669 /* MainScreenInteractorProtocol.swift */; };
+		F3B1C9C52A08A45A00CA9669 /* MainScreenRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C42A08A45A00CA9669 /* MainScreenRouterProtocol.swift */; };
+		F3B1C9C82A08A95100CA9669 /* UICustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C72A08A95100CA9669 /* UICustomTextField.swift */; };
+		F3B1C9CA2A08AC1500CA9669 /* InputBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C92A08AC1500CA9669 /* InputBlockView.swift */; };
 		F3E0F9C42A0776CF001ED468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C32A0776CF001ED468 /* AppDelegate.swift */; };
 		F3E0F9C62A0776CF001ED468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C52A0776CF001ED468 /* SceneDelegate.swift */; };
 		F3E0F9C82A0776CF001ED468 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C72A0776CF001ED468 /* GameScreenViewController.swift */; };
@@ -50,6 +62,18 @@
 		F3AF05AD2A07B169001ED9E5 /* LineInFieldGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineInFieldGame.swift; sourceTree = "<group>"; };
 		F3AF05B22A07CC8E001ED9E5 /* PlayerShapeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerShapeType.swift; sourceTree = "<group>"; };
 		F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBusinessLogic.swift; sourceTree = "<group>"; };
+		F3B1C9B02A08A23900CA9669 /* MainScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenAssembly.swift; sourceTree = "<group>"; };
+		F3B1C9B32A08A28600CA9669 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		F3B1C9B52A08A29700CA9669 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		F3B1C9B72A08A2B400CA9669 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
+		F3B1C9B92A08A2D100CA9669 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
+		F3B1C9BB2A08A2D800CA9669 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
+		F3B1C9BE2A08A43400CA9669 /* MainScreenViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewControllerProtocol.swift; sourceTree = "<group>"; };
+		F3B1C9C02A08A44000CA9669 /* MainScreenPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenterProtocol.swift; sourceTree = "<group>"; };
+		F3B1C9C22A08A44D00CA9669 /* MainScreenInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractorProtocol.swift; sourceTree = "<group>"; };
+		F3B1C9C42A08A45A00CA9669 /* MainScreenRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouterProtocol.swift; sourceTree = "<group>"; };
+		F3B1C9C72A08A95100CA9669 /* UICustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomTextField.swift; sourceTree = "<group>"; };
+		F3B1C9C92A08AC1500CA9669 /* InputBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBlockView.swift; sourceTree = "<group>"; };
 		F3E0F9C02A0776CF001ED468 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E0F9C32A0776CF001ED468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3E0F9C52A0776CF001ED468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +188,49 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F3B1C9AF2A08A21800CA9669 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3B1C9BD2A08A41A00CA9669 /* Protocols */,
+				F3B1C9B02A08A23900CA9669 /* MainScreenAssembly.swift */,
+				F3B1C9B22A08A25500CA9669 /* View */,
+				F3B1C9B72A08A2B400CA9669 /* MainScreenPresenter.swift */,
+				F3B1C9B92A08A2D100CA9669 /* MainScreenInteractor.swift */,
+				F3B1C9BB2A08A2D800CA9669 /* MainScreenRouter.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		F3B1C9B22A08A25500CA9669 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3B1C9B52A08A29700CA9669 /* MainScreenViewController.swift */,
+				F3B1C9B32A08A28600CA9669 /* MainScreenView.swift */,
+				F3B1C9C62A08A92600CA9669 /* CustomViews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3B1C9BD2A08A41A00CA9669 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F3B1C9BE2A08A43400CA9669 /* MainScreenViewControllerProtocol.swift */,
+				F3B1C9C02A08A44000CA9669 /* MainScreenPresenterProtocol.swift */,
+				F3B1C9C22A08A44D00CA9669 /* MainScreenInteractorProtocol.swift */,
+				F3B1C9C42A08A45A00CA9669 /* MainScreenRouterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F3B1C9C62A08A92600CA9669 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				F3B1C9C72A08A95100CA9669 /* UICustomTextField.swift */,
+				F3B1C9C92A08AC1500CA9669 /* InputBlockView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		F3E0F9B72A0776CF001ED468 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				F3AF05822A078B20001ED9E5 /* Storyboards */,
+				F3B1C9AF2A08A21800CA9669 /* MainScreen */,
 				F3AF05832A078B44001ED9E5 /* GameScreen */,
 				F3AF05892A078E8B001ED9E5 /* Extensions */,
 			);
@@ -301,22 +369,34 @@
 				F3AF05852A078C22001ED9E5 /* GameScreenView.swift in Sources */,
 				F3AF05952A07A180001ED9E5 /* GameScreenViewControllerProtocol.swift in Sources */,
 				F3AF05922A079FE7001ED9E5 /* FieldGameView.swift in Sources */,
+				F3B1C9BC2A08A2D800CA9669 /* MainScreenRouter.swift in Sources */,
 				F3E0F9C82A0776CF001ED468 /* GameScreenViewController.swift in Sources */,
 				F3AF05A62A07B0BD001ED9E5 /* GameScreenRouter.swift in Sources */,
+				F3B1C9BA2A08A2D100CA9669 /* MainScreenInteractor.swift in Sources */,
 				F3AF05A42A07B0AD001ED9E5 /* GameScreenInteractor.swift in Sources */,
+				F3B1C9C82A08A95100CA9669 /* UICustomTextField.swift in Sources */,
 				F3AF05AA2A07B0D4001ED9E5 /* GameScreenRouterProtocol.swift in Sources */,
 				F3E0F9C42A0776CF001ED468 /* AppDelegate.swift in Sources */,
 				F3AF059A2A07A4A3001ED9E5 /* GameScreenPresenterProtocol.swift in Sources */,
 				F3E0F9C62A0776CF001ED468 /* SceneDelegate.swift in Sources */,
 				F3AF059E2A07AE3F001ED9E5 /* MainRouterProtocol.swift in Sources */,
+				F3B1C9BF2A08A43400CA9669 /* MainScreenViewControllerProtocol.swift in Sources */,
+				F3B1C9C52A08A45A00CA9669 /* MainScreenRouterProtocol.swift in Sources */,
+				F3B1C9CA2A08AC1500CA9669 /* InputBlockView.swift in Sources */,
 				F3AF05AE2A07B169001ED9E5 /* LineInFieldGame.swift in Sources */,
 				F3AF05BA2A07EAE7001ED9E5 /* GameBusinessLogic.swift in Sources */,
 				F3AF05972A07A473001ED9E5 /* GameScreenPresenter.swift in Sources */,
+				F3B1C9B82A08A2B400CA9669 /* MainScreenPresenter.swift in Sources */,
 				F3AF05B32A07CC8E001ED9E5 /* PlayerShapeType.swift in Sources */,
 				F3AF05A22A07B09F001ED9E5 /* GameScreenAssembly.swift in Sources */,
+				F3B1C9B42A08A28600CA9669 /* MainScreenView.swift in Sources */,
+				F3B1C9C12A08A44000CA9669 /* MainScreenPresenterProtocol.swift in Sources */,
+				F3B1C9B12A08A23900CA9669 /* MainScreenAssembly.swift in Sources */,
 				F3AF05A82A07B0CA001ED9E5 /* GameScreenInteractorProtocol.swift in Sources */,
+				F3B1C9B62A08A29700CA9669 /* MainScreenViewController.swift in Sources */,
 				F3AF05A02A07AE45001ED9E5 /* MainRouter.swift in Sources */,
 				F3AF058B2A078E9F001ED9E5 /* ColorExtension.swift in Sources */,
+				F3B1C9C32A08A44D00CA9669 /* MainScreenInteractorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ class MainRouter: MainRouterProtocol {
     internal var navigationController: UINavigationController?
     
     func start() -> UINavigationController {
-        let startViewController = showGameScreen()
+        let startViewController = getStartScreen()
         let navigationController = UINavigationController(rootViewController: startViewController)
         
         self.navigationController = navigationController
@@ -22,8 +22,30 @@ class MainRouter: MainRouterProtocol {
 }
 
 extension MainRouter {
-    func showGameScreen() -> UIViewController {
-
-        return GameScreenAssembly.build()
+    func getStartScreen() -> UIViewController {
+        let goToGameScreenHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.showGameScreen()
+        }
+        
+        let goToRulesScreenHandler = { [ weak self ] in
+            //TODO: добавить функцию для перехода на экран с правилами игры
+        }
+        
+        let parameters = MainScreenAssembly.Parameters(goToGameScreenHandler: goToGameScreenHandler,
+                                                       goToRulesScreenHandler: goToRulesScreenHandler)
+        
+        return MainScreenAssembly.build(with: parameters)
+    }
+    
+    func showMainScreen() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func showGameScreen() {
+        let viewController = GameScreenAssembly.build()
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
