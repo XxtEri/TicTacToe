@@ -25,7 +25,7 @@ class MainScreenValidator {
             throw MainScreenErrors.emptyFieldNamePlayer
         }
         
-        let namePredicate = NSPredicate(format: "SELF MATCHES %@", "^[A-Za-zA-Яа-я ]{1,}$")
+        let namePredicate = NSPredicate(format: "SELF MATCHES %@", "^[A-Za-zA-Яа-я0-9 ]{1,}$")
         if !namePredicate.evaluate(with: nameFirstPlayer) ||
             !namePredicate.evaluate(with: nameSecondPlayer){
             
