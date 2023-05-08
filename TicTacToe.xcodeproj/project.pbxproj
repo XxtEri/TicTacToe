@@ -24,6 +24,7 @@
 		F3AF05AA2A07B0D4001ED9E5 /* GameScreenRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF05A92A07B0D4001ED9E5 /* GameScreenRouterProtocol.swift */; };
 		F3AF05AE2A07B169001ED9E5 /* LineInFieldGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF05AD2A07B169001ED9E5 /* LineInFieldGame.swift */; };
 		F3AF05B32A07CC8E001ED9E5 /* PlayerShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF05B22A07CC8E001ED9E5 /* PlayerShapeType.swift */; };
+		F3AF05BA2A07EAE7001ED9E5 /* GameBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */; };
 		F3E0F9C42A0776CF001ED468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C32A0776CF001ED468 /* AppDelegate.swift */; };
 		F3E0F9C62A0776CF001ED468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C52A0776CF001ED468 /* SceneDelegate.swift */; };
 		F3E0F9C82A0776CF001ED468 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C72A0776CF001ED468 /* GameScreenViewController.swift */; };
@@ -48,6 +49,7 @@
 		F3AF05A92A07B0D4001ED9E5 /* GameScreenRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenRouterProtocol.swift; sourceTree = "<group>"; };
 		F3AF05AD2A07B169001ED9E5 /* LineInFieldGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineInFieldGame.swift; sourceTree = "<group>"; };
 		F3AF05B22A07CC8E001ED9E5 /* PlayerShapeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerShapeType.swift; sourceTree = "<group>"; };
+		F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBusinessLogic.swift; sourceTree = "<group>"; };
 		F3E0F9C02A0776CF001ED468 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E0F9C32A0776CF001ED468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3E0F9C52A0776CF001ED468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F3AF05B82A07EAD9001ED9E5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		F3E0F9B72A0776CF001ED468 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +185,7 @@
 			children = (
 				F3E0F9D92A07770E001ED468 /* Application */,
 				F3AF059C2A07AE27001ED9E5 /* MainRouter */,
+				F3AF05B82A07EAD9001ED9E5 /* Services */,
 				F3E0F9D82A077705001ED468 /* Screens */,
 				F3E0F9D72A0776FD001ED468 /* Resources */,
 			);
@@ -299,6 +310,7 @@
 				F3E0F9C62A0776CF001ED468 /* SceneDelegate.swift in Sources */,
 				F3AF059E2A07AE3F001ED9E5 /* MainRouterProtocol.swift in Sources */,
 				F3AF05AE2A07B169001ED9E5 /* LineInFieldGame.swift in Sources */,
+				F3AF05BA2A07EAE7001ED9E5 /* GameBusinessLogic.swift in Sources */,
 				F3AF05972A07A473001ED9E5 /* GameScreenPresenter.swift in Sources */,
 				F3AF05B32A07CC8E001ED9E5 /* PlayerShapeType.swift in Sources */,
 				F3AF05A22A07B09F001ED9E5 /* GameScreenAssembly.swift in Sources */,

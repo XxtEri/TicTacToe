@@ -23,7 +23,10 @@ class GameScreenPresenter {
         self.router = router
     }
     
-    private func getInfoTappedCell(x: CGFloat, y: CGFloat, sizeFieldGame: CGFloat) -> (Int, Int) {
+}
+
+private extension GameScreenPresenter {
+    func getInfoTappedCell(x: CGFloat, y: CGFloat, sizeFieldGame: CGFloat) -> (Int, Int) {
         let row = Int(y / (sizeFieldGame / Constants.countCellInRow)) + 1
         let column = Int(x / (sizeFieldGame / Constants.countCellInRow)) + 1
         
@@ -71,8 +74,7 @@ extension GameScreenPresenter: GameScreenPresenterProtocol {
         
         if interactor.checkPossibleMoveInGame(row: row, column: column) {
             addImage(positionX: positionX, positionY: positionY)
-            interactor.saveNewShape(row: row, column: column)
-            interactor.moveToNextPlayer()
+            interactor.playerEndingTurn(row: row, column: column)
             changeNameLabel(nameCurrentPlayer: interactor.getNameCurrentPlayer())
         }
     }
@@ -85,5 +87,13 @@ extension GameScreenPresenter: GameScreenPresenterProtocol {
     
     func changeNameLabel(nameCurrentPlayer: String) {
         view?.changeNameLabel(nameCurrentPlayer: nameCurrentPlayer)
+    }
+    
+    func sendGameOver(nameWinner: String) {
+        view?.finishGame(nameWinner: nameWinner)
+    }
+    
+    func sendGameOver() {
+        view?.finishGame()
     }
 }

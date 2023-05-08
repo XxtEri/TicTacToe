@@ -42,6 +42,19 @@ private extension GameScreenViewController {
             self.presenter.touchInGameField(x: x, y: y, sizeFieldGame: sizeFieldGame)
         }
     }
+    
+    func showAlert(title: String, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.editButtonItem.tintColor = .tintColorAlert
+        
+        let alertActionGoToStartScreen = UIAlertAction(title: "Вернуться на главную", style: .default) { _ in
+            //TODO: сделать переход на экран с вводом имен
+        }
+
+        alert.addAction(alertActionGoToStartScreen)
+        
+        self.present(alert, animated: true)
+    }
 }
 
 extension GameScreenViewController: GameScreenViewControllerProtocol {
@@ -55,5 +68,13 @@ extension GameScreenViewController: GameScreenViewControllerProtocol {
     
     func changeNameLabel(nameCurrentPlayer: String) {
         ui.setNamePlayerLabel(name: nameCurrentPlayer)
+    }
+    
+    func finishGame(nameWinner: String) {
+        showAlert(title: "Игра окончена", message: "Победитель \(nameWinner)")
+    }
+    
+    func finishGame() {
+        showAlert(title: "Игра окончена", message: "Объявлена ничья")
     }
 }
