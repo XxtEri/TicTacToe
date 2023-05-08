@@ -8,8 +8,12 @@
 import UIKit
 
 enum GameScreenAssembly {
-    static func build() -> UIViewController {
-        let router = GameScreenRouter()
+    struct Parameters {
+        let goToMainScreenHandler: (() -> Void)
+    }
+    
+    static func build(with parameters: Parameters) -> UIViewController {
+        let router = GameScreenRouter(goToMainScreenHandler: parameters.goToMainScreenHandler)
         let interactor = GameScreenInteractor()
         let presenter = GameScreenPresenter(interactor: interactor, router: router)
         let viewController = GameScreenViewController(presenter: presenter)

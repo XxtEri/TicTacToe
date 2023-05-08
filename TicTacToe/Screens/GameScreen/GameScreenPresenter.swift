@@ -96,4 +96,12 @@ extension GameScreenPresenter: GameScreenPresenterProtocol {
     func sendGameOver() {
         view?.finishGame()
     }
+    
+    func goToMainScreen() {
+        router.goToMainScreen()
+    }
+    
+    func getNameCurrentUser() -> String {
+        interactor.getNameCurrentPlayer()
+    }
 }

@@ -46,7 +46,14 @@ extension MainRouter {
     }
     
     func showGameScreen() {
-        let viewController = GameScreenAssembly.build()
+        let goToMainScreenHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.showMainScreen()
+        }
+        
+        let parameters = GameScreenAssembly.Parameters(goToMainScreenHandler: goToMainScreenHandler)
+        let viewController = GameScreenAssembly.build(with: parameters)
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }

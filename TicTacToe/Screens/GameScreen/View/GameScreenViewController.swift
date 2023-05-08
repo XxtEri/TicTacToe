@@ -17,6 +17,8 @@ class GameScreenViewController: UIViewController {
         ui = GameScreenView()
         
         super.init(nibName: nil, bundle: nil)
+        
+        ui.setNamePlayerLabel(name: presenter.getNameCurrentUser())
     }
     
     required init?(coder: NSCoder) {
@@ -47,8 +49,10 @@ private extension GameScreenViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.editButtonItem.tintColor = .accentColorApplication
         
-        let alertActionGoToStartScreen = UIAlertAction(title: "Вернуться на главную", style: .default) { _ in
-            //TODO: сделать переход на экран с вводом имен
+        let alertActionGoToStartScreen = UIAlertAction(title: "Вернуться на главную", style: .default) { [ weak self ]_ in
+            guard let self = self else { return }
+            
+            self.presenter.goToMainScreen()
         }
 
         alert.addAction(alertActionGoToStartScreen)

@@ -16,4 +16,6 @@ protocol GameScreenPresenterProtocol: AnyObject {
     func addImage(positionX: CGFloat, positionY: CGFloat)
     func sendGameOver(nameWinner: String)
     func sendGameOver()
+    func goToMainScreen()
+    func getNameCurrentUser() -> String
 }

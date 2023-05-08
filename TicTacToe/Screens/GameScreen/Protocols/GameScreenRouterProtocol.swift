@@ -6,5 +6,5 @@
 //
 
 protocol GameScreenRouterProtocol {
-    
+    func goToMainScreen()
 }

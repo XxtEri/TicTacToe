@@ -259,8 +259,8 @@
 		F3AF05B82A07EAD9001ED9E5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F3E945482A08ED9800837C2A /* UseCases */,
 				F304A6AF2A08B70800A8EBFF /* ValidationServices */,
-				F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -374,6 +374,14 @@
 				F3E945462A08DCA600837C2A /* BlockTitleWithTextView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		F3E945482A08ED9800837C2A /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

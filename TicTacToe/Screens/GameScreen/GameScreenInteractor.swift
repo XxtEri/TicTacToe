@@ -10,14 +10,13 @@ import Foundation
 final class GameScreenInteractor {
     weak var presenter: GameScreenPresenterProtocol?
     var businessLogic: GameBusinessLogic
-    
     var nameFirstPlayer: String
     var nameSecondPlayer: String
     
     init() {
         businessLogic = GameBusinessLogic()
-        nameFirstPlayer = "Nana"
-        nameSecondPlayer = "Bla"
+        nameFirstPlayer = UserDefaults.standard.string(forKey: "nameFirstPlayer") ?? "First player"
+        nameSecondPlayer = UserDefaults.standard.string(forKey: "nameSecondPlayer") ?? "Second player"
         
         handler()
     }
