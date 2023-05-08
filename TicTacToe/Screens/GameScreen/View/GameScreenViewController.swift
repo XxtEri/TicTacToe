@@ -44,10 +44,10 @@ private extension GameScreenViewController {
     }
     
     func showAlert(title: String, message: String?) {
-        var alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.editButtonItem.tintColor = .tintColorAlert
         
-        var alertActionGoToStartScreen = UIAlertAction(title: "Вернуться на главную", style: .default) { _ in
+        let alertActionGoToStartScreen = UIAlertAction(title: "Вернуться на главную", style: .default) { _ in
             //TODO: сделать переход на экран с вводом имен
         }
 
