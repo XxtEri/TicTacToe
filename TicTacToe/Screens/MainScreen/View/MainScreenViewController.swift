@@ -29,6 +29,26 @@ class MainScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupToHideKeyboardOnTapOnView()
+        
+    }
+}
+
+private extension MainScreenViewController {
+    func setupToHideKeyboardOnTapOnView() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        self.view.endEditing(true)
     }
 }
 

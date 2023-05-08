@@ -35,6 +35,8 @@
 		F3B1C9C12A08A44000CA9669 /* MainScreenPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C02A08A44000CA9669 /* MainScreenPresenterProtocol.swift */; };
 		F3B1C9C32A08A44D00CA9669 /* MainScreenInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C22A08A44D00CA9669 /* MainScreenInteractorProtocol.swift */; };
 		F3B1C9C52A08A45A00CA9669 /* MainScreenRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C42A08A45A00CA9669 /* MainScreenRouterProtocol.swift */; };
+		F3B1C9C82A08A95100CA9669 /* UICustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C72A08A95100CA9669 /* UICustomTextField.swift */; };
+		F3B1C9CA2A08AC1500CA9669 /* InputBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1C9C92A08AC1500CA9669 /* InputBlockView.swift */; };
 		F3E0F9C42A0776CF001ED468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C32A0776CF001ED468 /* AppDelegate.swift */; };
 		F3E0F9C62A0776CF001ED468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C52A0776CF001ED468 /* SceneDelegate.swift */; };
 		F3E0F9C82A0776CF001ED468 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0F9C72A0776CF001ED468 /* GameScreenViewController.swift */; };
@@ -70,6 +72,8 @@
 		F3B1C9C02A08A44000CA9669 /* MainScreenPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenterProtocol.swift; sourceTree = "<group>"; };
 		F3B1C9C22A08A44D00CA9669 /* MainScreenInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractorProtocol.swift; sourceTree = "<group>"; };
 		F3B1C9C42A08A45A00CA9669 /* MainScreenRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouterProtocol.swift; sourceTree = "<group>"; };
+		F3B1C9C72A08A95100CA9669 /* UICustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomTextField.swift; sourceTree = "<group>"; };
+		F3B1C9C92A08AC1500CA9669 /* InputBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBlockView.swift; sourceTree = "<group>"; };
 		F3E0F9C02A0776CF001ED468 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E0F9C32A0776CF001ED468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3E0F9C52A0776CF001ED468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			children = (
 				F3B1C9B52A08A29700CA9669 /* MainScreenViewController.swift */,
 				F3B1C9B32A08A28600CA9669 /* MainScreenView.swift */,
+				F3B1C9C62A08A92600CA9669 /* CustomViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +220,15 @@
 				F3B1C9C42A08A45A00CA9669 /* MainScreenRouterProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F3B1C9C62A08A92600CA9669 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				F3B1C9C72A08A95100CA9669 /* UICustomTextField.swift */,
+				F3B1C9C92A08AC1500CA9669 /* InputBlockView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		F3E0F9B72A0776CF001ED468 = {
@@ -360,6 +374,7 @@
 				F3AF05A62A07B0BD001ED9E5 /* GameScreenRouter.swift in Sources */,
 				F3B1C9BA2A08A2D100CA9669 /* MainScreenInteractor.swift in Sources */,
 				F3AF05A42A07B0AD001ED9E5 /* GameScreenInteractor.swift in Sources */,
+				F3B1C9C82A08A95100CA9669 /* UICustomTextField.swift in Sources */,
 				F3AF05AA2A07B0D4001ED9E5 /* GameScreenRouterProtocol.swift in Sources */,
 				F3E0F9C42A0776CF001ED468 /* AppDelegate.swift in Sources */,
 				F3AF059A2A07A4A3001ED9E5 /* GameScreenPresenterProtocol.swift in Sources */,
@@ -367,6 +382,7 @@
 				F3AF059E2A07AE3F001ED9E5 /* MainRouterProtocol.swift in Sources */,
 				F3B1C9BF2A08A43400CA9669 /* MainScreenViewControllerProtocol.swift in Sources */,
 				F3B1C9C52A08A45A00CA9669 /* MainScreenRouterProtocol.swift in Sources */,
+				F3B1C9CA2A08AC1500CA9669 /* InputBlockView.swift in Sources */,
 				F3AF05AE2A07B169001ED9E5 /* LineInFieldGame.swift in Sources */,
 				F3AF05BA2A07EAE7001ED9E5 /* GameBusinessLogic.swift in Sources */,
 				F3AF05972A07A473001ED9E5 /* GameScreenPresenter.swift in Sources */,

@@ -9,7 +9,8 @@ import UIKit
 
 enum MainScreenAssembly {
     struct Parameters {
-        let goToMainScreenHandler: (() -> Void)
+        let goToGameScreenHandler: (() -> Void)
+        let goToRulesScreenHandler: (() -> Void)
     }
     
     static func build(with parameters: Parameters) -> UIViewController {
