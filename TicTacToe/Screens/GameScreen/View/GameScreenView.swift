@@ -10,11 +10,31 @@ import SnapKit
 
 class GameScreenView: UIView {
     
+    private var infoWhoTurnNow: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 2
+        
+        return view
+    }()
+    
     private var nameTurnPayerLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont(name: "Zekton", size: 25)
         view.textColor = .white
         view.textAlignment = .center
+        view.numberOfLines = 2
+        
+        return view
+    }()
+    
+    private var turnNowTextLabel: UILabel = {
+        let view = UILabel()
+        view.text = "ходит сейчас"
+        view.font = UIFont(name: "Zekton", size: 25)
+        view.textColor = .white
+        view.textAlignment = .center
+        view.numberOfLines = 1
         
         return view
     }()
@@ -46,7 +66,7 @@ class GameScreenView: UIView {
     }
     
     func setNamePlayerLabel(name: String) {
-        nameTurnPayerLabel.text = "\(name) turn now"
+        nameTurnPayerLabel.text = name
     }
 }
 
@@ -63,13 +83,16 @@ private extension GameScreenView {
     }
     
     func addViews() {
-        self.addSubview(nameTurnPayerLabel)
+        self.addSubview(infoWhoTurnNow)
         self.addSubview(fieldGameView)
         self.addSubview(gameOverButton)
+        
+        infoWhoTurnNow.addArrangedSubview(nameTurnPayerLabel)
+        infoWhoTurnNow.addArrangedSubview(turnNowTextLabel)
     }
     
     func configureConstraints() {
-        nameTurnPayerLabel.snp.makeConstraints { make in
+        infoWhoTurnNow.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).inset(35)
             make.horizontalEdges.equalToSuperview().inset(16)
         }
