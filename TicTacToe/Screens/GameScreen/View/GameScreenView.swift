@@ -53,7 +53,7 @@ class GameScreenView: UIView {
     }()
     
     var fieldGameView = FieldGameView()
-    
+    var gameOverButtonTappedHandler: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -109,6 +109,11 @@ private extension GameScreenView {
     }
     
     func configureActions() {
-        
+        gameOverButton.addTarget(self, action: #selector(gameOverButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func gameOverButtonTapped() {
+        gameOverButtonTappedHandler?()
     }
 }

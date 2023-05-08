@@ -59,6 +59,12 @@ private extension GameScreenViewController {
             
             self.presenter.touchInGameField(x: x, y: y, sizeFieldGame: sizeFieldGame)
         }
+        
+        ui.gameOverButtonTappedHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.presenter.gameOverButtonTapped()
+        }
     }
     
     func bindings() {

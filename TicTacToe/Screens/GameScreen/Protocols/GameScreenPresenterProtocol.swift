@@ -15,10 +15,10 @@ protocol GameScreenPresenterProtocol: AnyObject {
     var nameCurrentPlayerTurning: Observable<String> { get set }
     
     func touchInGameField(x: CGFloat, y: CGFloat, sizeFieldGame: CGFloat)
-    func addImage(positionX: CGFloat, positionY: CGFloat)
     func sendGameOver(nameWinner: String)
     func sendGameOver()
     func goToMainScreen()
     func getNameCurrentUser() -> String
     func updateNameCurrentPlayerTurning()
+    func gameOverButtonTapped()
 }
