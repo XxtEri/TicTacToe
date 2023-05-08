@@ -89,6 +89,7 @@ class GameBusinessLogic {
             return true
         }
         
+        isWin = true
         if gameMatrix[0][gameMatrix.count - 1] == .non {
             return false
         }
