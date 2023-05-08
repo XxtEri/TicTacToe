@@ -35,6 +35,12 @@ private extension GameScreenPresenter {
         
         return (row, column)
     }
+    
+    func addImage(positionX: CGFloat, positionY: CGFloat) {
+        let currentShape = interactor.getCurrentPlayerShape()
+
+        currentShape == .cross ? view?.addCrossImage(positionX: positionX, positionY: positionY) : view?.addCircleImage(positionX: positionX, positionY: positionY)
+    }
 }
 
 extension GameScreenPresenter: GameScreenPresenterProtocol {
@@ -85,10 +91,8 @@ extension GameScreenPresenter: GameScreenPresenterProtocol {
         }
     }
     
-    func addImage(positionX: CGFloat, positionY: CGFloat) {
-        let currentShape = interactor.getCurrentPlayerShape()
-
-        currentShape == .cross ? view?.addCrossImage(positionX: positionX, positionY: positionY) : view?.addCircleImage(positionX: positionX, positionY: positionY)
+    func gameOverButtonTapped() {
+        sendGameOver()
     }
     
     func sendGameOver(nameWinner: String) {
