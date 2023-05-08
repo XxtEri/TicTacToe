@@ -76,4 +76,9 @@ extension GameScreenInteractor: GameScreenInteractorProtocol {
     func sendGameOver() {
         presenter?.sendGameOver()
     }
+    
+    func clearData() {
+        UserDefaults.standard.removeObject(forKey: "nameFirstPlayer")
+        UserDefaults.standard.removeObject(forKey: "nameSecondPlayer")
+    }
 }
