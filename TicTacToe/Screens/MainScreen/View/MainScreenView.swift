@@ -49,7 +49,7 @@ class MainScreenView: UIView {
         return view
     }()
     
-    private var inputBlockSecondPlayer: InputBlockView = {
+    var inputBlockSecondPlayer: InputBlockView = {
         let view = InputBlockView()
         view.setTitleInputBlock(title: "Второй игрок")
         
@@ -65,11 +65,13 @@ class MainScreenView: UIView {
         view.layer.borderColor = UIColor.borderStartGameButton.cgColor
         view.layer.borderWidth = 2
         view.contentEdgeInsets = UIEdgeInsets(top: 13, left: 10, bottom: 13, right: 10)
+        view.isEnabled = false
         
         return view
     }()
     
     var startGameButtonTappedHandler: ((Player, Player) -> Void)?
+    var editNamesHandler: ((Player, Player) -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,6 +85,19 @@ class MainScreenView: UIView {
     
     func setEnabledStarGameButton(enabled: Bool) {
         startPlayButton.isEnabled = enabled
+    }
+    
+    func changeLayoutAuthButton(isValidData: Bool) {
+        if !isValidData {
+            startPlayButton.layer.borderWidth = 2
+            startPlayButton.layer.borderColor = UIColor.accentColorApplication.cgColor
+            startPlayButton.backgroundColor = .clear
+            
+        } else {
+            startPlayButton.layer.borderWidth = 0
+            startPlayButton.layer.borderColor = nil
+            startPlayButton.backgroundColor = .accentColorApplication
+        }
     }
 }
 
@@ -141,6 +156,8 @@ extension MainScreenView {
     
     func configureActions() {
         startPlayButton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
+        inputBlockFirstPlayer.inputField.addTarget(self, action: #selector(editNamePlayers), for: .editingChanged)
+        inputBlockSecondPlayer.inputField.addTarget(self, action: #selector(editNamePlayers), for: .editingChanged)
     }
     
     @objc
@@ -149,5 +166,12 @@ extension MainScreenView {
         let secondPlayer = Player(name: inputBlockSecondPlayer.getNamePlayer())
         
         startGameButtonTappedHandler?(firstPlayer, secondPlayer)
+    }
+    
+    @objc
+    func editNamePlayers() {
+        let firstPlayer = Player(name: inputBlockFirstPlayer.getNamePlayer())
+        let secondPlayer = Player(name: inputBlockSecondPlayer.getNamePlayer())
+        editNamesHandler?(firstPlayer, secondPlayer)
     }
 }

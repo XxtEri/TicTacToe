@@ -40,6 +40,12 @@ class MainScreenViewController: UIViewController {
             
             self.presenter.startGameButtonTapped(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
         }
+        
+        ui.editNamesHandler = { [ weak self ] (firstPlayer, secondPlayer)  in
+            guard let self = self else { return }
+            
+            self.presenter.checkValidData(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
+        }
     }
 }
 
@@ -61,6 +67,10 @@ private extension MainScreenViewController {
 }
 
 extension MainScreenViewController: MainScreenViewControllerProtocol {
+    func changeLayoutAuthButton(isValidData: Bool) {
+        ui.changeLayoutAuthButton(isValidData: isValidData)
+    }
+    
     func setEnabledButton(enabled: Bool) {
         ui.setEnabledStarGameButton(enabled: enabled)
     }

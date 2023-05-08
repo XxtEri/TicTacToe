@@ -10,4 +10,5 @@ protocol MainScreenViewControllerProtocol: AnyObject {
     
     func showErrorMessages(_ errorMessages: [String])
     func setEnabledButton(enabled: Bool)
+    func changeLayoutAuthButton(isValidData: Bool)
 }

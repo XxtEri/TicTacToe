@@ -12,4 +12,5 @@ protocol MainScreenPresenterProtocol: AnyObject {
     
     func startGameButtonTapped(firstPlayer: Player, secondPlayer: Player)
     func sendErrorMessages(_ errorMessages: [String])
+    func checkValidData(firstPlayer: Player, secondPlayer: Player)
 }

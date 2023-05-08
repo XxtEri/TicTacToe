@@ -33,6 +33,13 @@ extension MainScreenPresenter: MainScreenPresenterProtocol {
         router.goToRulesScreen()
     }
     
+    func checkValidData(firstPlayer: Player, secondPlayer: Player) {
+        guard let dataIsEmpty = try? interactor.checkValidData(firstPlayer: firstPlayer, secondPlayer: secondPlayer) else { return }
+        
+        view?.setEnabledButton(enabled: dataIsEmpty)
+        view?.changeLayoutAuthButton(isValidData: dataIsEmpty)
+    }
+    
     func sendErrorMessages(_ errorMessages: [String]) {
         view?.showErrorMessages(errorMessages)
     }

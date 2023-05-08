@@ -38,11 +38,14 @@ extension MainScreenInteractor: MainScreenInteractorProtocol {
         return false
     }
     
-    func checkValidData(firstPlayer: Player, secondPlayer: Player) throws -> Bool {
-        do {
-            try validator.checkValidNamePlayers(nameFirstPlayer: firstPlayer.name, nameSecondPlayer: secondPlayer.name)
+    func checkValidData(firstPlayer: Player, secondPlayer: Player) -> Bool {
+        let nameEmptyPredicate = NSPredicate(format: "SELF MATCHES %@", "^[ ]+$")
+        
+        if firstPlayer.name.isEmpty ||
+            secondPlayer.name.isEmpty ||
+            nameEmptyPredicate.evaluate(with: firstPlayer.name) ||
+            nameEmptyPredicate.evaluate(with: secondPlayer.name) {
             
-        } catch MainScreenErrors.emptyFieldNamePlayer {
             return false
         }
          
