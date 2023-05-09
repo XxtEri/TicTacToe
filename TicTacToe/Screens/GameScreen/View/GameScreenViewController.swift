@@ -9,8 +9,17 @@ import UIKit
 
 class GameScreenViewController: UIViewController {
     
+    // MARK: - Private properties
+    
     private var ui: GameScreenView
+    
+    
+    // MARK: - Public properties
+    
     var presenter: GameScreenPresenterProtocol
+    
+    
+    // MARK: - Inits
     
     init(presenter: GameScreenPresenterProtocol) {
         self.presenter = presenter
@@ -25,6 +34,9 @@ class GameScreenViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - Lifecycle
+    
     override func loadView() {
         self.view = ui
     }
@@ -33,8 +45,11 @@ class GameScreenViewController: UIViewController {
         super.viewDidLoad()
         
         handler()
-        bindings()
+        bindSubscribe()
     }
+    
+    
+    // MARK: - Private methods
     
     private func showAlert(title: String, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -50,11 +65,11 @@ class GameScreenViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
-}
-
-private extension GameScreenViewController {
-    func handler() {
-        ui.fieldGameView.fieldGameTapped = { [ weak self ] (x, y, sizeFieldGame) in
+    
+    // MARK: - Private methods
+    
+    private func handler() {
+        ui.fieldGameView.fieldGameTappedHandler = { [ weak self ] (x, y, sizeFieldGame) in
             guard let self = self else { return }
             
             self.presenter.touchInGameField(x: x, y: y, sizeFieldGame: sizeFieldGame)
@@ -67,7 +82,7 @@ private extension GameScreenViewController {
         }
     }
     
-    func bindings() {
+    private func bindSubscribe() {
         presenter.nameCurrentPlayerTurning.subscribe { [ weak self ] name in
             guard let self = self else { return }
             
@@ -76,7 +91,11 @@ private extension GameScreenViewController {
     }
 }
 
+
+// MARK: - Public extension
+
 extension GameScreenViewController: GameScreenViewControllerProtocol {
+    
     func addCrossImage(positionX: CGFloat, positionY: CGFloat) {
         ui.fieldGameView.addCrossImage(positionX: positionX, positionY: positionY)
     }

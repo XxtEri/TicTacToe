@@ -10,6 +10,8 @@ import SnapKit
 
 class FieldGameView: UIView {
     
+    // MARK: - Private properties
+    
     private enum Metrics {
         static let sizeLine: CGFloat = 4
         static let lineVerticalInset: CGFloat = 13
@@ -30,7 +32,13 @@ class FieldGameView: UIView {
     
     private var horizontalLineSecondView = LineInFieldGame()
     
-    var fieldGameTapped: ((CGFloat, CGFloat, CGFloat) -> Void)?
+    
+    // MARK: - Handlers
+    
+    var fieldGameTappedHandler: ((CGFloat, CGFloat, CGFloat) -> Void)?
+    
+    
+    // MARK: - Inits
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +50,9 @@ class FieldGameView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - Private methods
+    
     private func setupImageConstraints(image: UIImageView, positionX: CGFloat, positionY: CGFloat) {
         image.snp.makeConstraints { make in
             make.size.equalTo(Metrics.widthCell - 15 * 4)
@@ -49,6 +60,9 @@ class FieldGameView: UIView {
             make.centerY.equalTo(positionY)
         }
     }
+    
+    
+    // MARK: - Public methods
     
     func addCrossImage(positionX: CGFloat, positionY: CGFloat) {
         let image = UIImageView(image: UIImage(named: "Cross"))
@@ -68,6 +82,11 @@ class FieldGameView: UIView {
         setupImageConstraints(image: image, positionX: positionX, positionY: positionY)
     }
 }
+
+
+// MARK: - Private methods
+
+// MARK: - Setup
 
 private extension FieldGameView {
     func setup() {
@@ -121,11 +140,16 @@ private extension FieldGameView {
     func configureAction() {
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(fieldGameTapped(selector:))))
     }
+}
+
+// MARK: - Actions
+
+private extension FieldGameView {
     
     @objc
     func fieldGameTapped(selector: UITapGestureRecognizer) {
         let touchPoint = selector.location(in: self)
         
-        fieldGameTapped?(touchPoint.x, touchPoint.y, Metrics.sizeFieldGame)
+        fieldGameTappedHandler?(touchPoint.x, touchPoint.y, Metrics.sizeFieldGame)
     }
 }

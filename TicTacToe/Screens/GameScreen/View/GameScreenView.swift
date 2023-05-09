@@ -10,6 +10,8 @@ import SnapKit
 
 class GameScreenView: UIView {
     
+    // MARK: - Private properties
+    
     private var infoWhoTurnNow: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -52,8 +54,13 @@ class GameScreenView: UIView {
         return view
     }()
     
+    // MARK: - Handlers
+    
     var fieldGameView = FieldGameView()
     var gameOverButtonTappedHandler: (() -> Void)?
+    
+    
+    // MARK: - Inits
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,10 +72,18 @@ class GameScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - Public methods
+    
     func setNamePlayerLabel(name: String) {
         nameTurnPayerLabel.text = name
     }
 }
+
+
+// MARK: - Private extensions
+
+// MARK: - Setup
 
 private extension GameScreenView {
     func setup() {
@@ -111,6 +126,11 @@ private extension GameScreenView {
     func configureActions() {
         gameOverButton.addTarget(self, action: #selector(gameOverButtonTapped), for: .touchUpInside)
     }
+}
+
+// MARK: - Actions
+
+private extension GameScreenView {
     
     @objc
     func gameOverButtonTapped() {

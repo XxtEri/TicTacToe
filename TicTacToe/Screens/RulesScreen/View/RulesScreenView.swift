@@ -10,6 +10,8 @@ import SnapKit
 
 class RulesScreenView: UIView {
     
+    // MARK: - Private properties
+    
     private var arrowBackButton: UIButton = {
         let view = UIButton()
         view.setImage(UIImage(named: "ArrowBackNavigation"), for: .normal)
@@ -51,7 +53,13 @@ class RulesScreenView: UIView {
         return view
     }()
 
+    
+    // MARK: - Hadnlers
+    
     var arrowBackTappedHandler: (() -> Void)?
+    
+    
+    // MARK: - Inits
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,6 +71,10 @@ class RulesScreenView: UIView {
         fatalError("error")
     }
 }
+
+
+// MARK: - Private extension
+// MARK: - Setup
 
 private extension RulesScreenView {
     func setup() {
@@ -105,6 +117,11 @@ private extension RulesScreenView {
     func configureActions() {
         arrowBackButton.addTarget(self, action: #selector(arrowBackTapped), for: .touchUpInside)
     }
+}
+
+// MARK: - Actions
+
+private extension RulesScreenView {
     
     @objc
     func arrowBackTapped() {

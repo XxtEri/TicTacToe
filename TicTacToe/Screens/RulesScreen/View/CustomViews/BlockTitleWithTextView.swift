@@ -10,6 +10,8 @@ import SnapKit
 
 class BlockTitleWithTextView: UIView {
     
+    // MARK: - Private properties
+    
     private var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = .white
@@ -30,6 +32,9 @@ class BlockTitleWithTextView: UIView {
         return view
     }()
     
+    
+    // MARK: - Inits
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -40,6 +45,9 @@ class BlockTitleWithTextView: UIView {
         fatalError("error")
     }
     
+    
+    // MARK: - Public methods
+    
     func setTitle(title: String) {
         titleLabel.text = title
     }
@@ -48,6 +56,9 @@ class BlockTitleWithTextView: UIView {
         textLabel.text = text
     }
 }
+
+// MARK: - Private extension
+// MARK: - Setup
 
 private extension BlockTitleWithTextView {
     func setup() {

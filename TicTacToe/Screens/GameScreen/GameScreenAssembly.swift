@@ -8,11 +8,17 @@
 import UIKit
 
 enum GameScreenAssembly {
+    
+    // MARK: - Parameters screen
+    
     struct Parameters {
         let namesPlayers: (String, String)
         
         let goToMainScreenHandler: (() -> Void)
     }
+    
+    
+    // MARK: - Build method
     
     static func build(with parameters: Parameters) -> UIViewController {
         let router = GameScreenRouter(goToMainScreenHandler: parameters.goToMainScreenHandler)

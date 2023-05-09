@@ -9,6 +9,8 @@ import SnapKit
 import UIKit
 
 class InputBlockView: UIView {
+    
+    // MARK: - Private properties
 
     private var titleInputBlock: UILabel = {
         let view = UILabel()
@@ -18,6 +20,9 @@ class InputBlockView: UIView {
         
         return view
     }()
+    
+    
+    // MARK: - Public poperties
 
     var inputField: UICustomTextField = {
         var view = UICustomTextField()
@@ -25,6 +30,9 @@ class InputBlockView: UIView {
         
         return view
     }()
+    
+    
+    // MARK: - Inits
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +44,9 @@ class InputBlockView: UIView {
         fatalError("error")
     }
     
+    
+    // MARK: - Public methods
+    
     func setTitleInputBlock(title: String) {
         titleInputBlock.text = title
     }
@@ -44,6 +55,9 @@ class InputBlockView: UIView {
         inputField.text ?? ""
     }
 }
+
+
+// MARK: - Private extension
 
 private extension InputBlockView {
     func setup() {
@@ -67,14 +81,5 @@ private extension InputBlockView {
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }
-    }
-    
-    func configureActions() {
-        inputField.addTarget(self, action: #selector(editInputTextField), for: .editingChanged)
-    }
-    
-    @objc
-    func editInputTextField() {
-        
     }
 }

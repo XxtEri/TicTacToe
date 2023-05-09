@@ -8,13 +8,26 @@
 import Foundation
 
 class MainScreenInteractor {
+    
+    // MARK: - Private properties
+    
     private var validator: MainScreenValidator
+    
+    
+    // MARK: - Public properties
+    
     weak var presenter: MainScreenPresenterProtocol?
+    
+    
+    // MARK: - Inits
     
     init() {
         validator = MainScreenValidator()
     }
 }
+
+
+// MARK: - Public extension
 
 extension MainScreenInteractor: MainScreenInteractorProtocol {
     func checkErrorValidData(firstPlayer: Player, secondPlayer: Player) throws -> Bool {

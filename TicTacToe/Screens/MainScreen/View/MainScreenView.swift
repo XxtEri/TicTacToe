@@ -10,6 +10,8 @@ import SnapKit
 
 class MainScreenView: UIView {
     
+    // MARK: - Private properties
+    
     private var rulesTitleLabel: UILabel = {
         let view = UILabel()
         view.text = "Правила игры"
@@ -70,10 +72,16 @@ class MainScreenView: UIView {
         return view
     }()
     
+    
+    // MARK: - Handlers
+    
     var startGameButtonTappedHandler: ((Player, Player) -> Void)?
     var rulesLabelTappedHandler: (() -> Void)?
     var editNamesHandler: ((Player, Player) -> Void)?
 
+    
+    // MARK: - Inits
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -83,6 +91,9 @@ class MainScreenView: UIView {
     required init?(coder: NSCoder) {
         fatalError("error")
     }
+    
+    
+    // MARK: - Public methods
     
     func setEnabledStarGameButton(enabled: Bool) {
         startPlayButton.isEnabled = enabled
@@ -110,7 +121,12 @@ class MainScreenView: UIView {
     }
 }
 
+
+// MARK: - Public extension
+// MARK: - Setup
+
 extension MainScreenView {
+
     func setup() {
         addViews()
         configureUI()
@@ -169,7 +185,11 @@ extension MainScreenView {
         inputBlockFirstPlayer.inputField.addTarget(self, action: #selector(editNamePlayers), for: .editingChanged)
         inputBlockSecondPlayer.inputField.addTarget(self, action: #selector(editNamePlayers), for: .editingChanged)
     }
-    
+}
+
+// MARK: - Actions
+
+private extension MainScreenView {
     @objc
     func startGameButtonTapped() {
         let firstPlayer = Player(name: inputBlockFirstPlayer.getNamePlayer())

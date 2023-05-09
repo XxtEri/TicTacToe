@@ -9,8 +9,17 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
     
+    // MARK: - Private properties
+    
     private var ui: MainScreenView
+    
+    
+    // MARK: - Public properties
+    
     var presenter: MainScreenPresenterProtocol
+    
+    
+    // MARK: - Inits
     
     init(presenter: MainScreenPresenterProtocol) {
         self.presenter = presenter
@@ -22,6 +31,9 @@ class MainScreenViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("error")
     }
+    
+    
+    // MARK: - Lifecycle
     
     override func loadView() {
         self.view = ui
@@ -39,6 +51,8 @@ class MainScreenViewController: UIViewController {
         handler()
     }
     
+    // MARK: - Private methods
+
     private func handler() {
         ui.startGameButtonTappedHandler = { [ weak self ] (firstPlayer, secondPlayer)  in
             guard let self = self else { return }
@@ -60,6 +74,9 @@ class MainScreenViewController: UIViewController {
     }
 }
 
+
+// MARK: - Private extension
+
 private extension MainScreenViewController {
     func setupToHideKeyboardOnTapOnView() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
@@ -76,6 +93,9 @@ private extension MainScreenViewController {
         self.view.endEditing(true)
     }
 }
+
+
+// MARK: - Public extension
 
 extension MainScreenViewController: MainScreenViewControllerProtocol {
     func changeLayoutAuthButton(isValidData: Bool) {
