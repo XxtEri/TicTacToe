@@ -9,7 +9,7 @@ import UIKit
 
 enum MainScreenAssembly {
     struct Parameters {
-        let goToGameScreenHandler: (() -> Void)
+        let goToGameScreenHandler: ((String, String) -> Void)
         let goToRulesScreenHandler: (() -> Void)
     }
     

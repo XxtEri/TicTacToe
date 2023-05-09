@@ -11,5 +11,4 @@ protocol MainScreenInteractorProtocol {
     func checkErrorValidData(firstPlayer: Player, secondPlayer: Player) throws -> Bool
     func checkValidData(firstPlayer: Player, secondPlayer: Player) throws -> Bool
     func sendErrorMessages(_ errorMessages: [String])
-    func saveNamePlayers(nameFirstPlayer: String, nameSecondPlayer: String)
 }

@@ -13,10 +13,10 @@ final class GameScreenInteractor {
     var nameFirstPlayer: String
     var nameSecondPlayer: String
     
-    init() {
+    init(namesPlayers: (String, String)) {
         businessLogic = GameBusinessLogic()
-        nameFirstPlayer = UserDefaults.standard.string(forKey: "nameFirstPlayer") ?? "First player"
-        nameSecondPlayer = UserDefaults.standard.string(forKey: "nameSecondPlayer") ?? "Second player"
+        nameFirstPlayer = namesPlayers.0
+        nameSecondPlayer = namesPlayers.1
         
         handler()
     }
@@ -75,10 +75,5 @@ extension GameScreenInteractor: GameScreenInteractorProtocol {
     
     func sendGameOver() {
         presenter?.sendGameOver()
-    }
-    
-    func clearData() {
-        UserDefaults.standard.removeObject(forKey: "nameFirstPlayer")
-        UserDefaults.standard.removeObject(forKey: "nameSecondPlayer")
     }
 }

@@ -23,10 +23,10 @@ class MainRouter: MainRouterProtocol {
 
 extension MainRouter {
     func getStartScreen() -> UIViewController {
-        let goToGameScreenHandler = { [ weak self ] in
+        let goToGameScreenHandler = { [ weak self ] nameFirstPlayer, nameSecondPlayer in
             guard let self = self else { return }
             
-            self.showGameScreen()
+            self.showGameScreen(nameFirstPlayer: nameFirstPlayer, nameSecondPlayer: nameSecondPlayer)
         }
         
         let goToRulesScreenHandler = { [ weak self ] in
@@ -45,14 +45,14 @@ extension MainRouter {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func showGameScreen() {
+    func showGameScreen(nameFirstPlayer: String, nameSecondPlayer: String) {
         let goToMainScreenHandler = { [ weak self ] in
             guard let self = self else { return }
             
             self.showMainScreen()
         }
         
-        let parameters = GameScreenAssembly.Parameters(goToMainScreenHandler: goToMainScreenHandler)
+        let parameters = GameScreenAssembly.Parameters(namesPlayers: (nameFirstPlayer, nameSecondPlayer), goToMainScreenHandler: goToMainScreenHandler)
         let viewController = GameScreenAssembly.build(with: parameters)
         
         self.navigationController?.pushViewController(viewController, animated: true)

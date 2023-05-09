@@ -9,10 +9,10 @@ import Foundation
 
 
 class MainScreenRouter {
-    private var goToGameScreenHandler: (() -> Void)?
+    private var goToGameScreenHandler: ((String, String) -> Void)?
     private var goToRulesScreenHandler: (() -> Void)?
     
-    init(goToGameScreenHandler: (() -> Void)?, goToRulesScreenHandler: (() -> Void)?) {
+    init(goToGameScreenHandler: ((String, String) -> Void)?, goToRulesScreenHandler: (() -> Void)?) {
         self.goToGameScreenHandler = goToGameScreenHandler
         self.goToRulesScreenHandler = goToRulesScreenHandler
     }
@@ -23,7 +23,7 @@ extension MainScreenRouter: MainScreenRouterProtocol {
         self.goToRulesScreenHandler?()
     }
     
-    func goToGameScreen() {
-        self.goToGameScreenHandler?()
+    func goToGameScreen(nameFirstPlayer: String, nameSecondPlayer: String) {
+        self.goToGameScreenHandler?(nameFirstPlayer, nameSecondPlayer)
     }
 }

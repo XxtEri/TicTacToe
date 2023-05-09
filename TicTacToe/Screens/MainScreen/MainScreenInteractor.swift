@@ -52,11 +52,6 @@ extension MainScreenInteractor: MainScreenInteractorProtocol {
         return true
     }
     
-    func saveNamePlayers(nameFirstPlayer: String, nameSecondPlayer: String) {
-        UserDefaults.standard.set(nameFirstPlayer, forKey: "nameFirstPlayer")
-        UserDefaults.standard.set(nameSecondPlayer, forKey: "nameSecondPlayer")
-    }
-    
     func sendErrorMessages(_ errorMessages: [String]) {
         presenter?.sendErrorMessages(errorMessages)
     }

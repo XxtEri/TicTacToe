@@ -8,7 +8,7 @@
 import UIKit
 
 enum RulesScreenAssembly {
-    struct Parameters {
+    struct Parameters {        
         let goToMainScreenHandler: (() -> Void)
     }
     
