@@ -37,10 +37,10 @@ extension MainScreenInteractor: MainScreenInteractorProtocol {
             try validator.checkValidNamePlayers(nameFirstPlayer: firstPlayer.name, nameSecondPlayer: secondPlayer.name)
             
         } catch MainScreenErrors.emptyFieldNamePlayer {
-            errorMessages.append(MainScreenErrors.emptyFieldNamePlayer.rawValue)
+            errorMessages.append(MainScreenErrors.emptyFieldNamePlayer.localizedText)
             
         } catch MainScreenErrors.notValidNamePlayer {
-            errorMessages.append(MainScreenErrors.notValidNamePlayer.rawValue)
+            errorMessages.append(MainScreenErrors.notValidNamePlayer.localizedText)
         }
         
         if !errorMessages.isEmpty {

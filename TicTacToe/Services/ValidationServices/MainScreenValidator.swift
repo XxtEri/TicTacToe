@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum MainScreenErrors: String, Error {
+enum MainScreenErrors: Error {
     case emptyFieldNamePlayer
     case notValidNamePlayer
-    
+
     var localizedText: String {
         switch self {
         case .emptyFieldNamePlayer:
