@@ -7,6 +7,17 @@
 
 import Foundation
 
+protocol GameBusinessLogicProtocol {
+    var gameOverWinHandler: ((PlayerShapeType) -> Void)? { get set }
+    var gameOverDrawHandler: (() -> Void)? { get set }
+    
+    func saveNewShape(row: Int, column: Int)
+    func checkPossibleMoveInGame(row: Int, column: Int) -> Bool
+    func changeCurrentPlayer()
+    func getCurrentPlayerShape() -> PlayerShapeType
+    func checkPresenseWinnerPosition() -> Bool
+}
+
 class GameBusinessLogic {
     
     // MARK: - Public porperties
@@ -36,24 +47,7 @@ class GameBusinessLogic {
         }
     }
     
-    
     // MARK: - Public methods
-    
-    func saveNewShape(row: Int, column: Int) {
-        gameMatrix[row - 1][column - 1] = nowTurnPlayerShape
-        
-        if checkPresenseWinnerPosition() {
-            gameOverWinHandler?(nowTurnPlayerShape)
-        }
-        
-        if checkIfGameOver() {
-            gameOverDrawHandler?()
-        }
-    }
-    
-    func checkPossibleMoveInGame(row: Int, column: Int) -> Bool {
-        gameMatrix[row - 1][column - 1] == .non ? true : false
-    }
     
     func checkIfGameOver() -> Bool {
         for row in gameMatrix {
@@ -65,26 +59,6 @@ class GameBusinessLogic {
         }
         
         return true
-    }
-    
-    func checkPresenseWinnerPosition() -> Bool {
-        if checkPresenseWinnerPositionOnByRow() ||
-            checkPresenseWinnerPositionOnByColumn() ||
-            checkPresenseWinnerPositionOnFirstDiagonal() ||
-            checkPresenseWinnerPositionOnSecondDiagonal() {
-            
-            return true
-        }
-        
-        return false
-    }
-    
-    func getCurrentPlayerShape() -> PlayerShapeType {
-        nowTurnPlayerShape
-    }
-    
-    func changeCurrentPlayer() {
-        nowTurnPlayerShape = nowTurnPlayerShape == .cross ? .circle : .cross
     }
 }
 
@@ -178,4 +152,45 @@ private extension GameBusinessLogic {
         return false
     }
     
+}
+
+
+// MARK: - Public extensions
+
+extension GameBusinessLogic: GameBusinessLogicProtocol {
+    func saveNewShape(row: Int, column: Int) {
+        gameMatrix[row - 1][column - 1] = nowTurnPlayerShape
+        
+        if checkPresenseWinnerPosition() {
+            gameOverWinHandler?(nowTurnPlayerShape)
+        }
+        
+        if checkIfGameOver() {
+            gameOverDrawHandler?()
+        }
+    }
+    
+    func checkPossibleMoveInGame(row: Int, column: Int) -> Bool {
+        gameMatrix[row - 1][column - 1] == .non ? true : false
+    }
+    
+    func checkPresenseWinnerPosition() -> Bool {
+        if checkPresenseWinnerPositionOnByRow() ||
+            checkPresenseWinnerPositionOnByColumn() ||
+            checkPresenseWinnerPositionOnFirstDiagonal() ||
+            checkPresenseWinnerPositionOnSecondDiagonal() {
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    func getCurrentPlayerShape() -> PlayerShapeType {
+        nowTurnPlayerShape
+    }
+    
+    func changeCurrentPlayer() {
+        nowTurnPlayerShape = nowTurnPlayerShape == .cross ? .circle : .cross
+    }
 }

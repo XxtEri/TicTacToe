@@ -12,7 +12,7 @@ final class GameScreenInteractor {
     // MARK: - Public properties
     
     weak var presenter: GameScreenPresenterProtocol?
-    var businessLogic: GameBusinessLogic
+    var businessLogic: GameBusinessLogicProtocol
     var nameFirstPlayer: String
     var nameSecondPlayer: String
     
