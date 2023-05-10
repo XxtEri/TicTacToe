@@ -13,7 +13,7 @@ extension UIColor {
     }
     
     static var backgroundGameOverButton: UIColor {
-        #colorLiteral(red: 0.1992990971, green: 0.8821536899, blue: 0.7847856283, alpha: 1)
+        #colorLiteral(red: 0.1568627451, green: 0.6588235294, blue: 0.5607843137, alpha: 1)
     }
     
     static var backgroundFieldGame: UIColor {

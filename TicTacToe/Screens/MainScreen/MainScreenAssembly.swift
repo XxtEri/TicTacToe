@@ -8,10 +8,16 @@
 import UIKit
 
 enum MainScreenAssembly {
+    
+    // MARK: - Parameters screen
+    
     struct Parameters {
         let goToGameScreenHandler: ((String, String) -> Void)
         let goToRulesScreenHandler: (() -> Void)
     }
+    
+    
+    // MARK: - Build method
     
     static func build(with parameters: Parameters) -> UIViewController {
         let router = MainScreenRouter(goToGameScreenHandler: parameters.goToGameScreenHandler,

@@ -9,16 +9,24 @@ import CoreFoundation
 
 class GameScreenPresenter {
     
+    // MARK: - Private properties
+    
     private enum Constants {
         static let countCellInRow: CGFloat = 3
         static let countCellInColumn: CGFloat = 3
     }
     
+    
+    // MARK: - Public properties
+    
+    weak var view: GameScreenViewControllerProtocol?
     var interactor: GameScreenInteractorProtocol
     var router: GameScreenRouterProtocol
-    weak var view: GameScreenViewControllerProtocol?
     
     var nameCurrentPlayerTurning = Observable<String>()
+    
+    
+    // MARK: - Inits
     
     init(interactor: GameScreenInteractorProtocol, router: GameScreenRouterProtocol) {
         self.interactor = interactor
@@ -26,24 +34,30 @@ class GameScreenPresenter {
         
         updateNameCurrentPlayerTurning()
     }
-}
-
-private extension GameScreenPresenter {
-    func getInfoTappedCell(x: CGFloat, y: CGFloat, sizeFieldGame: CGFloat) -> (Int, Int) {
+    
+    
+    // MARK: - Private methods
+    
+    private func getInfoTappedCell(x: CGFloat, y: CGFloat, sizeFieldGame: CGFloat) -> (Int, Int) {
         let row = Int(y / (sizeFieldGame / Constants.countCellInRow)) + 1
         let column = Int(x / (sizeFieldGame / Constants.countCellInRow)) + 1
         
         return (row, column)
     }
     
-    func addImage(positionX: CGFloat, positionY: CGFloat) {
+    private func addImage(positionX: CGFloat, positionY: CGFloat) {
         let currentShape = interactor.getCurrentPlayerShape()
 
         currentShape == .cross ? view?.addCrossImage(positionX: positionX, positionY: positionY) : view?.addCircleImage(positionX: positionX, positionY: positionY)
     }
 }
 
+
+
+// MARK: - Public extension
+
 extension GameScreenPresenter: GameScreenPresenterProtocol {
+    
     func updateNameCurrentPlayerTurning() {
         nameCurrentPlayerTurning.updateModel(with: interactor.getNameCurrentPlayer())
     }

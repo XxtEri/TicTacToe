@@ -6,15 +6,27 @@
 //
 
 final class Observable<T> {
+    
+    // MARK: - Public porperties
+    
     var data: T?
+    
+    
+    // MARK: - Private porperties
 
     private var handle: ((T) -> Void)?
+    
+    
+    // MARK: - Inits
 
     init() {}
 
     init(_ data: T) {
         self.data = data
     }
+    
+    
+    // MARK: - Public merhods
 
     func updateModel(with data: T) {
         self.data = data

@@ -7,12 +7,32 @@
 
 import Foundation
 
+protocol GameBusinessLogicProtocol {
+    var gameOverWinHandler: ((PlayerShapeType) -> Void)? { get set }
+    var gameOverDrawHandler: (() -> Void)? { get set }
+    
+    func saveNewShape(row: Int, column: Int)
+    func checkPossibleMoveInGame(row: Int, column: Int) -> Bool
+    func changeCurrentPlayer()
+    func getCurrentPlayerShape() -> PlayerShapeType
+    func checkPresenseWinnerPosition() -> Bool
+}
+
 class GameBusinessLogic {
+    
+    // MARK: - Public porperties
+    
     var gameMatrix = [[PlayerShapeType]]()
     var nowTurnPlayerShape: PlayerShapeType
     
+    
+    // MARK: - Handlers
+    
     var gameOverWinHandler: ((PlayerShapeType) -> Void)?
     var gameOverDrawHandler: (() -> Void)?
+    
+    
+    // MARK: - Inits
     
     init() {
         nowTurnPlayerShape = .cross
@@ -27,7 +47,26 @@ class GameBusinessLogic {
         }
     }
     
-    private func checkPresenseWinnerPositionOnByRow() -> Bool {
+    // MARK: - Public methods
+    
+    func checkIfGameOver() -> Bool {
+        for row in gameMatrix {
+            for cell in row {
+                if cell == .non {
+                    return false
+                }
+            }
+        }
+        
+        return true
+    }
+}
+
+
+// MARK: - Private extensions
+
+private extension GameBusinessLogic {
+    func checkPresenseWinnerPositionOnByRow() -> Bool {
         for i in 0..<gameMatrix.count {
             if gameMatrix[i][0] == .non {
                 continue
@@ -49,12 +88,12 @@ class GameBusinessLogic {
         return false
     }
     
-    private func checkPresenseWinnerPositionOnByColumn() -> Bool {
+    func checkPresenseWinnerPositionOnByColumn() -> Bool {
         for i in 0..<gameMatrix.count {
             if gameMatrix[0][i] == .non {
                 continue
             }
-        
+            
             var isWin = true
             for j in 0..<gameMatrix.count {
                 if gameMatrix[j][i] != gameMatrix[0][i] {
@@ -71,7 +110,7 @@ class GameBusinessLogic {
         return false
     }
     
-    private func checkPresenseWinnerPositionOnFirstDiagonal() -> Bool {
+    func checkPresenseWinnerPositionOnFirstDiagonal() -> Bool {
         var isWin = true
         
         if gameMatrix[0][0] == .non {
@@ -92,7 +131,7 @@ class GameBusinessLogic {
         return false
     }
     
-    private func checkPresenseWinnerPositionOnSecondDiagonal() -> Bool {
+    func checkPresenseWinnerPositionOnSecondDiagonal() -> Bool {
         var isWin = true
         
         if gameMatrix[0][gameMatrix.count - 1] == .non {
@@ -113,6 +152,12 @@ class GameBusinessLogic {
         return false
     }
     
+}
+
+
+// MARK: - Public extensions
+
+extension GameBusinessLogic: GameBusinessLogicProtocol {
     func saveNewShape(row: Int, column: Int) {
         gameMatrix[row - 1][column - 1] = nowTurnPlayerShape
         
@@ -127,18 +172,6 @@ class GameBusinessLogic {
     
     func checkPossibleMoveInGame(row: Int, column: Int) -> Bool {
         gameMatrix[row - 1][column - 1] == .non ? true : false
-    }
-    
-    func checkIfGameOver() -> Bool {
-        for row in gameMatrix {
-            for cell in row {
-                if cell == .non {
-                    return false
-                }
-            }
-        }
-        
-        return true
     }
     
     func checkPresenseWinnerPosition() -> Bool {

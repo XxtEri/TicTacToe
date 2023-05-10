@@ -9,22 +9,36 @@ import SnapKit
 import UIKit
 
 class InputBlockView: UIView {
+    
+    // MARK: - Private properties
+    
+    private enum Metrics {
+        static let titleInputBlockTextSize: CGFloat = 16
+        
+        static let inputFieldTopOffset: CGFloat = 10
+    }
 
     private var titleInputBlock: UILabel = {
         let view = UILabel()
         view.textColor = .white
-        view.font = UIFont(name: "Zekton", size: 16)
+        view.font = UIFont(name: FontTitle.zektonFont, size: Metrics.titleInputBlockTextSize)
         view.textAlignment = .left
         
         return view
     }()
+    
+    
+    // MARK: - Public poperties
 
     var inputField: UICustomTextField = {
         var view = UICustomTextField()
-        view = view.getCustomTextField(placeholder: "Введите имя")
+        view = view.getCustomTextField(placeholder: StringConstants.inputFieldPlaceholderText)
         
         return view
     }()
+    
+    
+    // MARK: - Inits
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,14 +50,20 @@ class InputBlockView: UIView {
         fatalError("error")
     }
     
+    
+    // MARK: - Public methods
+    
     func setTitleInputBlock(title: String) {
         titleInputBlock.text = title
     }
     
     func getNamePlayer() -> String {
-        inputField.text ?? ""
+        inputField.text ?? String()
     }
 }
+
+
+// MARK: - Private extension
 
 private extension InputBlockView {
     func setup() {
@@ -58,23 +78,14 @@ private extension InputBlockView {
     
     func configureConstraints() {
         titleInputBlock.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
             make.top.equalToSuperview()
         }
         
         inputField.snp.makeConstraints { make in
-            make.top.equalTo(titleInputBlock.snp.bottom).offset(10)
+            make.top.equalTo(titleInputBlock.snp.bottom).offset(Metrics.inputFieldTopOffset)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }
-    }
-    
-    func configureActions() {
-        inputField.addTarget(self, action: #selector(editInputTextField), for: .editingChanged)
-    }
-    
-    @objc
-    func editInputTextField() {
-        
     }
 }

@@ -8,7 +8,13 @@
 import UIKit
 
 class MainRouter: MainRouterProtocol {
-    internal var navigationController: UINavigationController?
+    
+    // MARK: - Public properties
+    
+    var navigationController: UINavigationController?
+    
+    
+    // MARK: - Implement methods
     
     func start() -> UINavigationController {
         let startViewController = getStartScreen()
@@ -21,7 +27,11 @@ class MainRouter: MainRouterProtocol {
     }
 }
 
+
+// MARK: - Public extensions
+
 extension MainRouter {
+    
     func getStartScreen() -> UIViewController {
         let goToGameScreenHandler = { [ weak self ] nameFirstPlayer, nameSecondPlayer in
             guard let self = self else { return }

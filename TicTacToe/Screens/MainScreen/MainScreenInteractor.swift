@@ -8,13 +8,26 @@
 import Foundation
 
 class MainScreenInteractor {
+    
+    // MARK: - Private properties
+    
     private var validator: MainScreenValidator
+    
+    
+    // MARK: - Public properties
+    
     weak var presenter: MainScreenPresenterProtocol?
+    
+    
+    // MARK: - Inits
     
     init() {
         validator = MainScreenValidator()
     }
 }
+
+
+// MARK: - Public extension
 
 extension MainScreenInteractor: MainScreenInteractorProtocol {
     func checkErrorValidData(firstPlayer: Player, secondPlayer: Player) throws -> Bool {
@@ -24,10 +37,10 @@ extension MainScreenInteractor: MainScreenInteractorProtocol {
             try validator.checkValidNamePlayers(nameFirstPlayer: firstPlayer.name, nameSecondPlayer: secondPlayer.name)
             
         } catch MainScreenErrors.emptyFieldNamePlayer {
-            errorMessages.append(MainScreenErrors.emptyFieldNamePlayer.rawValue)
+            errorMessages.append(MainScreenErrors.emptyFieldNamePlayer.localizedText)
             
         } catch MainScreenErrors.notValidNamePlayer {
-            errorMessages.append(MainScreenErrors.notValidNamePlayer.rawValue)
+            errorMessages.append(MainScreenErrors.notValidNamePlayer.localizedText)
         }
         
         if !errorMessages.isEmpty {
@@ -39,13 +52,7 @@ extension MainScreenInteractor: MainScreenInteractorProtocol {
     }
     
     func checkValidData(firstPlayer: Player, secondPlayer: Player) -> Bool {
-        let nameEmptyPredicate = NSPredicate(format: "SELF MATCHES %@", "^[ ]+$")
-        
-        if firstPlayer.name.isEmpty ||
-            secondPlayer.name.isEmpty ||
-            nameEmptyPredicate.evaluate(with: firstPlayer.name) ||
-            nameEmptyPredicate.evaluate(with: secondPlayer.name) {
-            
+        if validator.checkIsEmptyField(data: firstPlayer.name) || validator.checkIsEmptyField(data: secondPlayer.name) {
             return false
         }
          
