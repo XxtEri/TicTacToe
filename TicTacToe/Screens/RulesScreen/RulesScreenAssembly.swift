@@ -8,18 +8,21 @@
 import UIKit
 
 enum RulesScreenAssembly {
-    struct Parameters {
+    
+    // MARK: - Parameters screen
+    
+    struct Parameters {        
         let goToMainScreenHandler: (() -> Void)
     }
     
+    // MARK: - Build method
+    
     static func build(with parameters: Parameters) -> UIViewController {
         let router = RulesScreenRouter(goToMainScreenHandler: parameters.goToMainScreenHandler)
-        let interactor = RulesScreenInteractor()
-        let presenter = RulesScreenPresenter(interactor: interactor, router: router)
+        let presenter = RulesScreenPresenter(router: router)
         let viewController = RulesScreenViewController(presenter: presenter)
         
         presenter.view = viewController
-        interactor.presenter = presenter
         
         return viewController
     }

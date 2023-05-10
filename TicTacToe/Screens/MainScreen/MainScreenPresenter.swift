@@ -8,15 +8,23 @@
 import Foundation
 
 class MainScreenPresenter {
+    
+    // MARK: - Public properties
+    
+    weak var view: MainScreenViewControllerProtocol?
     var interactor: MainScreenInteractorProtocol
     var router: MainScreenRouterProtocol
-    weak var view: MainScreenViewControllerProtocol?
+    
+    
+    // MARK: - Inits
     
     init(interactor: MainScreenInteractorProtocol, router: MainScreenRouterProtocol) {
         self.interactor = interactor
         self.router = router
     }
 }
+
+// MARK: - Public extension
 
 extension MainScreenPresenter: MainScreenPresenterProtocol {
     func startGameButtonTapped(firstPlayer: Player, secondPlayer: Player) {
@@ -25,8 +33,7 @@ extension MainScreenPresenter: MainScreenPresenterProtocol {
         guard let checkError = try? interactor.checkErrorValidData(firstPlayer: firstPlayer, secondPlayer: secondPlayer) else { return }
         
         if !checkError {
-            interactor.saveNamePlayers(nameFirstPlayer: firstPlayer.name, nameSecondPlayer: secondPlayer.name)
-            router.goToGameScreen()
+            router.goToGameScreen(nameFirstPlayer: firstPlayer.name, nameSecondPlayer: secondPlayer.name)
         }
     }
     

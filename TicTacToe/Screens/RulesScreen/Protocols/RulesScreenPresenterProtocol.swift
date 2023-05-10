@@ -7,7 +7,6 @@
 
 protocol RulesScreenPresenterProtocol: AnyObject {
     var view: RulesScreenViewControllerProtocol? { get set }
-    var interactor: RulesScreenInteractorProtocol { get set }
     var router: RulesScreenRouterProtocol { get set }
     
     func backToMainScreen()

@@ -8,18 +8,27 @@
 import Foundation
 
 final class GameScreenInteractor {
+    
+    // MARK: - Public properties
+    
     weak var presenter: GameScreenPresenterProtocol?
-    var businessLogic: GameBusinessLogic
+    var businessLogic: GameBusinessLogicProtocol
     var nameFirstPlayer: String
     var nameSecondPlayer: String
     
-    init() {
+    
+    // MARK: - Inits
+    
+    init(namesPlayers: (String, String)) {
         businessLogic = GameBusinessLogic()
-        nameFirstPlayer = UserDefaults.standard.string(forKey: "nameFirstPlayer") ?? "First player"
-        nameSecondPlayer = UserDefaults.standard.string(forKey: "nameSecondPlayer") ?? "Second player"
+        nameFirstPlayer = namesPlayers.0
+        nameSecondPlayer = namesPlayers.1
         
         handler()
     }
+    
+    
+    // MARK: - Private methods
     
     private func handler() {
         businessLogic.gameOverWinHandler = { [ weak self ] winPlayerShape in
@@ -36,6 +45,9 @@ final class GameScreenInteractor {
     }
 }
 
+
+// MARK: - Private extensions
+
 private extension GameScreenInteractor {
     func saveNewShape(row: Int, column: Int) {
         businessLogic.saveNewShape(row: row, column: column)
@@ -45,6 +57,9 @@ private extension GameScreenInteractor {
         businessLogic.changeCurrentPlayer()
     }
 }
+
+
+// MARK: - Public extensions
 
 extension GameScreenInteractor: GameScreenInteractorProtocol {
     func playerEndingTurn(row: Int, column: Int) {
@@ -75,10 +90,5 @@ extension GameScreenInteractor: GameScreenInteractorProtocol {
     
     func sendGameOver() {
         presenter?.sendGameOver()
-    }
-    
-    func clearData() {
-        UserDefaults.standard.removeObject(forKey: "nameFirstPlayer")
-        UserDefaults.standard.removeObject(forKey: "nameSecondPlayer")
     }
 }
