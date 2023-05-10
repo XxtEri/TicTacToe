@@ -21,3 +21,14 @@ IMPORTANT: the start button is not available for pressing, but as soon as the fi
 - As soon as someone wins, a dialog box will appear with information about the winner 
 
 ## Screenshots
+<p>
+    <img src="Screenshots/Main_Screen.PNG" width="250" height="540">
+    <img src="Screenshots/Main_Screen_2.PNG" width="250" height="540">
+    <img src="Screenshots/Main_Screen_3.PNG" width="250" height="540">
+    <img src="Screenshots/Rules_Screen.PNG" width="250" height="540">
+</p>
+<p>
+    <img src="Screenshots/Game_Screen.PNG" width="250" height="540">
+    <img src="Screenshots/Game_Screen_2.PNG" width="250" height="540">
+    <img src="Screenshots/Game_Screen_3.PNG" width="250" height="540">
+</p>
