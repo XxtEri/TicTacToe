@@ -78,7 +78,7 @@ private extension InputBlockView {
     
     func configureConstraints() {
         titleInputBlock.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
             make.top.equalToSuperview()
         }
         

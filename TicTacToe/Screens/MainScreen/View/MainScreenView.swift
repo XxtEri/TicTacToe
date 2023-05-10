@@ -25,9 +25,11 @@ class MainScreenView: UIView {
         static let infoLabelTopOffset: CGFloat = 10
         static let infoLabelHorizontalInset: CGFloat = 24
         
-        static let inputBlocksStackSpacingElements: CGFloat = 20
-        static let inputBlocksStackHorizontalInset: CGFloat = 24
-        static let inputBlocksStackTopOffset: CGFloat = 60
+        static let inputBlockFirstPlayerHorizontalInset: CGFloat = 24
+        static let inputBlockFirstPlayerTopOffset: CGFloat = 60
+        
+        static let inputBlockSecondPlayerHorizontalInset: CGFloat = 24
+        static let inputBlockSecondPlayerTopOffset: CGFloat = 20
         
         static let titleStartGameButtonTextSize: CGFloat = 18
         static let startGameButtonBorderWidthWhenInvalidData: CGFloat = 2
@@ -71,14 +73,6 @@ class MainScreenView: UIView {
         return view
     }()
     
-    private var inputBlocksStack: UIStackView = {
-        let view = UIStackView()
-        view.axis = .vertical
-        view.spacing = Metrics.inputBlocksStackSpacingElements
-        
-        return view
-    }()
-    
     private var inputBlockFirstPlayer: InputBlockView = {
         let view = InputBlockView()
         view.setTitleInputBlock(title: StringConstants.titleFirstInputBlock)
@@ -99,8 +93,6 @@ class MainScreenView: UIView {
         view.setTitleColor(.white, for: .normal)
         view.titleLabel?.font = UIFont(name: FontTitle.zektonFont, size: Metrics.titleStartGameButtonTextSize)
         view.layer.cornerRadius = Metrics.startGameButtonCornerRadius
-//        view.layer.borderColor = UIColor.borderStartGameButton.cgColor
-//        view.layer.borderWidth = Metrics.startGameButtonBorderWidth
         view.contentEdgeInsets = Metrics.startGameButtonEdgeInsets
         
         return view
@@ -174,10 +166,9 @@ extension MainScreenView {
         self.addSubview(welcomeLabel)
         self.addSubview(infoLabel)
         self.addSubview(startPlayButton)
-        self.addSubview(inputBlocksStack)
         
-        inputBlocksStack.addSubview(inputBlockFirstPlayer)
-        inputBlocksStack.addSubview(inputBlockSecondPlayer)
+        self.addSubview(inputBlockFirstPlayer)
+        self.addSubview(inputBlockSecondPlayer)
     }
     
     func configureUI() {
@@ -200,9 +191,14 @@ extension MainScreenView {
             make.horizontalEdges.equalToSuperview().inset(Metrics.infoLabelHorizontalInset)
         }
         
-        inputBlocksStack.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(Metrics.inputBlocksStackHorizontalInset)
-            make.top.equalTo(infoLabel.snp.bottom).offset(Metrics.inputBlocksStackTopOffset)
+        inputBlockFirstPlayer.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(Metrics.inputBlockFirstPlayerHorizontalInset)
+            make.top.equalTo(infoLabel.snp.bottom).offset(Metrics.inputBlockFirstPlayerTopOffset)
+        }
+        
+        inputBlockSecondPlayer.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(Metrics.inputBlockSecondPlayerHorizontalInset)
+            make.top.equalTo(inputBlockFirstPlayer.snp.bottom).offset(Metrics.inputBlockSecondPlayerTopOffset)
         }
         
         startPlayButton.snp.makeConstraints { make in
