@@ -9,6 +9,12 @@ import UIKit
 
 class LineInFieldGame: UIView {
     
+    // MARK: - Private properties
+    
+    private enum Metrics {
+        static let cornerRadiusView: CGFloat = 3
+    }
+    
     // MARK: - Inits
     
     override init(frame: CGRect) {
@@ -28,6 +34,6 @@ class LineInFieldGame: UIView {
     
     private func setup() {
         self.backgroundColor = .backgroundLineOnFieldGame
-        self.layer.cornerRadius = 3
+        self.layer.cornerRadius = Metrics.cornerRadiusView
     }
 }

@@ -52,13 +52,7 @@ extension MainScreenInteractor: MainScreenInteractorProtocol {
     }
     
     func checkValidData(firstPlayer: Player, secondPlayer: Player) -> Bool {
-        let nameEmptyPredicate = NSPredicate(format: "SELF MATCHES %@", "^[ ]+$")
-        
-        if firstPlayer.name.isEmpty ||
-            secondPlayer.name.isEmpty ||
-            nameEmptyPredicate.evaluate(with: firstPlayer.name) ||
-            nameEmptyPredicate.evaluate(with: secondPlayer.name) {
-            
+        if validator.checkIsEmptyField(data: firstPlayer.name) || validator.checkIsEmptyField(data: secondPlayer.name) {
             return false
         }
          

@@ -8,8 +8,17 @@
 import Foundation
 
 enum MainScreenErrors: String, Error {
-    case emptyFieldNamePlayer = "Заполните все поля с именами игроков и повторите попытку"
-    case notValidNamePlayer = "Имена игроков должны состоять только из букв английского или русского алфавита"
+    case emptyFieldNamePlayer
+    case notValidNamePlayer
+    
+    var localizedText: String {
+        switch self {
+        case .emptyFieldNamePlayer:
+            return DescriptionError.emptyField
+        case .notValidNamePlayer:
+            return DescriptionError.notValidNamePlayer
+        }
+    }
 }
 
 class MainScreenValidator {
@@ -17,21 +26,31 @@ class MainScreenValidator {
     // MARK: - Public methods
     
     func checkValidNamePlayers(nameFirstPlayer: String, nameSecondPlayer: String) throws {
-        let nameEmptyPredicate = NSPredicate(format: "SELF MATCHES %@", "^[ ]+$")
+        let nameEmptyPredicate = NSPredicate(format: RegexValidation.formatRegex, RegexValidation.regexEmptyString)
         
         if nameFirstPlayer.isEmpty || nameEmptyPredicate.evaluate(with: nameFirstPlayer) {
             throw MainScreenErrors.emptyFieldNamePlayer
         }
         
-        if nameSecondPlayer.isEmpty || nameSecondPlayer.contains("[ ]+") {
+        if nameSecondPlayer.isEmpty || nameEmptyPredicate.evaluate(with: nameSecondPlayer) {
             throw MainScreenErrors.emptyFieldNamePlayer
         }
         
-        let namePredicate = NSPredicate(format: "SELF MATCHES %@", "^[A-Za-zA-Яа-я0-9 ]{1,}$")
+        let namePredicate = NSPredicate(format: RegexValidation.formatRegex, RegexValidation.regexNamePlayer)
         if !namePredicate.evaluate(with: nameFirstPlayer) ||
             !namePredicate.evaluate(with: nameSecondPlayer){
             
             throw MainScreenErrors.notValidNamePlayer
         }
+    }
+    
+    func checkIsEmptyField(data: String) -> Bool {
+        let nameEmptyPredicate = NSPredicate(format: RegexValidation.formatRegex, RegexValidation.regexEmptyString)
+        
+        if data.isEmpty || nameEmptyPredicate.evaluate(with: data) {
+            return true
+        }
+        
+        return false
     }
 }

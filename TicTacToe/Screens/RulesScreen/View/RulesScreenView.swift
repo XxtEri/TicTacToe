@@ -12,19 +12,30 @@ class RulesScreenView: UIView {
     
     // MARK: - Private properties
     
+    private enum Metrics {
+        static let titleScreenTextSize: CGFloat = 25
+        static let titleScreenTopInset: CGFloat = 20
+        
+        static let rulesStackSpacingElements: CGFloat = 20
+        static let rulesStackTopOffset: CGFloat = 35
+        static let rulesStackHorizontalInset: CGFloat = 24
+        
+        static let arrowBackButtontopInset: CGFloat = 10
+    }
+    
     private var arrowBackButton: UIButton = {
         let view = UIButton()
-        view.setImage(UIImage(named: "ArrowBackNavigation"), for: .normal)
+        view.setImage(UIImage(named: ImageTitleConstants.imageArrowBackNavigation), for: .normal)
         
         return view
     }()
     
     private var titleScreen: UILabel = {
         let view = UILabel()
-        view.text = "Правила игры"
+        view.text = StringConstants.titleRulesScreen
         view.textColor = .accentColorApplication
         view.textAlignment = .center
-        view.font = UIFont(name: "Zekton", size: 25)
+        view.font = UIFont(name: FontTitle.zektonFont, size: Metrics.titleScreenTextSize)
         
         return view
     }()
@@ -32,23 +43,23 @@ class RulesScreenView: UIView {
     private var rulesStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.spacing = 20
+        view.spacing = Metrics.rulesStackSpacingElements
         
         return view
     }()
     
     private var turnInGameInfoBlockView: BlockTitleWithTextView = {
         let view = BlockTitleWithTextView()
-        view.setTitle(title: "Как ходить в игре?")
-        view.setText(text: "Игроки по очереди ставят на свободные клетки поля 3×3 знаки (один всегда крестики, другой всегда нолики).\nПервый ход делает игрок, ставящий крестики.")
+        view.setTitle(title: StringConstants.howTurnTitle)
+        view.setText(text: StringConstants.howTurnDescription)
         
         return view
     }()
     
     private var gameOverInfoBlockView: BlockTitleWithTextView = {
         let view = BlockTitleWithTextView()
-        view.setTitle(title: "Когда игра завершается?")
-        view.setText(text: "Первый, выстроивший в ряд 3 своих фигуры по вертикали, горизонтали или большой диагонали, выигрывает. Если игроки заполнили все 9 ячеек и оказалось, что ни в одной вертикали, горизонтали или большой диагонали нет трёх одинаковых знаков, партия считается закончившейся в ничью.")
+        view.setTitle(title: StringConstants.whenGameOverTitle)
+        view.setText(text: StringConstants.whenGameOverDescription)
         
         return view
     }()
@@ -74,6 +85,7 @@ class RulesScreenView: UIView {
 
 
 // MARK: - Private extension
+
 // MARK: - Setup
 
 private extension RulesScreenView {
@@ -99,18 +111,18 @@ private extension RulesScreenView {
     
     func configureConstraints() {
         arrowBackButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(Metrics.arrowBackButtontopInset)
             make.centerY.equalTo(titleScreen.snp.centerY)
         }
         
         titleScreen.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).inset(20)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).inset(Metrics.titleScreenTopInset)
         }
         
         rulesStack.snp.makeConstraints { make in
-            make.top.equalTo(titleScreen.snp.bottom).offset(35)
-            make.horizontalEdges.equalToSuperview().inset(24)
+            make.top.equalTo(titleScreen.snp.bottom).offset(Metrics.rulesStackTopOffset)
+            make.horizontalEdges.equalToSuperview().inset(Metrics.rulesStackHorizontalInset)
         }
     }
     

@@ -12,11 +12,17 @@ class BlockTitleWithTextView: UIView {
     
     // MARK: - Private properties
     
+    private enum Metrics {
+        static let titleTextSize: CGFloat = 16
+        static let textTextSize: CGFloat = 13
+        static let textTopOffset: CGFloat = 10
+    }
+    
     private var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = .white
         view.textAlignment = .left
-        view.font = UIFont(name: "Zekton", size: 16)
+        view.font = UIFont(name: FontTitle.zektonFont, size: Metrics.titleTextSize)
         
         
         return view
@@ -26,7 +32,7 @@ class BlockTitleWithTextView: UIView {
         let view = UILabel()
         view.textColor = .white
         view.textAlignment = .left
-        view.font = UIFont(name: "Zekton", size: 13)
+        view.font = UIFont(name: FontTitle.zektonFont, size: Metrics.textTextSize)
         view.numberOfLines = .max
         
         return view
@@ -78,7 +84,7 @@ private extension BlockTitleWithTextView {
         }
         
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Metrics.textTopOffset)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }

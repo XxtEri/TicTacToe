@@ -55,7 +55,7 @@ class GameScreenViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.editButtonItem.tintColor = .accentColorApplication
         
-        let alertActionGoToStartScreen = UIAlertAction(title: "Вернуться на главную", style: .default) { [ weak self ]_ in
+        let alertActionGoToStartScreen = UIAlertAction(title: StringConstants.buttonGoMainScreen, style: .default) { [ weak self ]_ in
             guard let self = self else { return }
             
             self.presenter.goToMainScreen()
@@ -105,10 +105,10 @@ extension GameScreenViewController: GameScreenViewControllerProtocol {
     }
     
     func finishGame(nameWinner: String) {
-        showAlert(title: "Игра окончена", message: "Победитель \(nameWinner)")
+        showAlert(title: StringConstants.titleAlertGameOver, message: "\(StringConstants.messageGameOverWithWinner) \(nameWinner)")
     }
     
     func finishGame() {
-        showAlert(title: "Игра окончена", message: "Объявлена ничья")
+        showAlert(title: StringConstants.titleAlertGameOver, message: StringConstants.messageGameOverWithoutWinner)
     }
 }

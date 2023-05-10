@@ -54,6 +54,11 @@
 		F3E945442A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945432A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift */; };
 		F3E945472A08DCA600837C2A /* BlockTitleWithTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945462A08DCA600837C2A /* BlockTitleWithTextView.swift */; };
 		F3E9454B2A08F46800837C2A /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9454A2A08F46800837C2A /* Observable.swift */; };
+		F3E945502A0B643700837C2A /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9454F2A0B643700837C2A /* StringConstants.swift */; };
+		F3E945522A0B6CCD00837C2A /* RegexValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945512A0B6CCD00837C2A /* RegexValidation.swift */; };
+		F3E945562A0B6D1700837C2A /* FontTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945552A0B6D1700837C2A /* FontTitle.swift */; };
+		F3E945582A0B74AC00837C2A /* ImageTitleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945572A0B74AC00837C2A /* ImageTitleConstants.swift */; };
+		F3E9455A2A0B7B9200837C2A /* DescriptionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E945592A0B7B9200837C2A /* DescriptionError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +110,11 @@
 		F3E945432A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesScreenViewControllerProtocol.swift; sourceTree = "<group>"; };
 		F3E945462A08DCA600837C2A /* BlockTitleWithTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTitleWithTextView.swift; sourceTree = "<group>"; };
 		F3E9454A2A08F46800837C2A /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		F3E9454F2A0B643700837C2A /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		F3E945512A0B6CCD00837C2A /* RegexValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexValidation.swift; sourceTree = "<group>"; };
+		F3E945552A0B6D1700837C2A /* FontTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTitle.swift; sourceTree = "<group>"; };
+		F3E945572A0B74AC00837C2A /* ImageTitleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTitleConstants.swift; sourceTree = "<group>"; };
+		F3E945592A0B7B9200837C2A /* DescriptionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,7 +386,8 @@
 		F3E945482A08ED9800837C2A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */,
+				F3E9454E2A0B642500837C2A /* Constants */,
+				F3E9454D2A0B641A00837C2A /* BusinessLogic */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -387,6 +398,26 @@
 				F3E9454A2A08F46800837C2A /* Observable.swift */,
 			);
 			path = Bindings;
+			sourceTree = "<group>";
+		};
+		F3E9454D2A0B641A00837C2A /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF05B92A07EAE7001ED9E5 /* GameBusinessLogic.swift */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		F3E9454E2A0B642500837C2A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F3E9454F2A0B643700837C2A /* StringConstants.swift */,
+				F3E945512A0B6CCD00837C2A /* RegexValidation.swift */,
+				F3E945552A0B6D1700837C2A /* FontTitle.swift */,
+				F3E945572A0B74AC00837C2A /* ImageTitleConstants.swift */,
+				F3E945592A0B7B9200837C2A /* DescriptionError.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +509,7 @@
 				F3B1C9BA2A08A2D100CA9669 /* MainScreenInteractor.swift in Sources */,
 				F3AF05A42A07B0AD001ED9E5 /* GameScreenInteractor.swift in Sources */,
 				F3B1C9C82A08A95100CA9669 /* UICustomTextField.swift in Sources */,
+				F3E945502A0B643700837C2A /* StringConstants.swift in Sources */,
 				F3AF05AA2A07B0D4001ED9E5 /* GameScreenRouterProtocol.swift in Sources */,
 				F3E0F9C42A0776CF001ED468 /* AppDelegate.swift in Sources */,
 				F3AF059A2A07A4A3001ED9E5 /* GameScreenPresenterProtocol.swift in Sources */,
@@ -486,6 +518,8 @@
 				F3E945442A08D84F00837C2A /* RulesScreenViewControllerProtocol.swift in Sources */,
 				F3AF059E2A07AE3F001ED9E5 /* MainRouterProtocol.swift in Sources */,
 				F3B1C9BF2A08A43400CA9669 /* MainScreenViewControllerProtocol.swift in Sources */,
+				F3E945562A0B6D1700837C2A /* FontTitle.swift in Sources */,
+				F3E945582A0B74AC00837C2A /* ImageTitleConstants.swift in Sources */,
 				F3B1C9C52A08A45A00CA9669 /* MainScreenRouterProtocol.swift in Sources */,
 				F3B1C9CA2A08AC1500CA9669 /* InputBlockView.swift in Sources */,
 				F3AF05AE2A07B169001ED9E5 /* LineInFieldGame.swift in Sources */,
@@ -501,11 +535,13 @@
 				F304A6BC2A08D3EB00A8EBFF /* RulesScreenPresenter.swift in Sources */,
 				F3B1C9C12A08A44000CA9669 /* MainScreenPresenterProtocol.swift in Sources */,
 				F3B1C9B12A08A23900CA9669 /* MainScreenAssembly.swift in Sources */,
+				F3E945522A0B6CCD00837C2A /* RegexValidation.swift in Sources */,
 				F3AF05A82A07B0CA001ED9E5 /* GameScreenInteractorProtocol.swift in Sources */,
 				F304A6C02A08D40000A8EBFF /* RulesScreenRouter.swift in Sources */,
 				F3B1C9B62A08A29700CA9669 /* MainScreenViewController.swift in Sources */,
 				F3AF05A02A07AE45001ED9E5 /* MainRouter.swift in Sources */,
 				F3AF058B2A078E9F001ED9E5 /* ColorExtension.swift in Sources */,
+				F3E9455A2A0B7B9200837C2A /* DescriptionError.swift in Sources */,
 				F3B1C9C32A08A44D00CA9669 /* MainScreenInteractorProtocol.swift in Sources */,
 				F3E945422A08D84400837C2A /* RulesScreenRouterProtocol.swift in Sources */,
 				F304A6B12A08B71500A8EBFF /* MainScreenValidator.swift in Sources */,

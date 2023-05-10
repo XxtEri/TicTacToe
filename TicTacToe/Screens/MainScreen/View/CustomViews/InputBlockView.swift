@@ -11,11 +11,17 @@ import UIKit
 class InputBlockView: UIView {
     
     // MARK: - Private properties
+    
+    private enum Metrics {
+        static let titleInputBlockTextSize: CGFloat = 16
+        
+        static let inputFieldTopOffset: CGFloat = 10
+    }
 
     private var titleInputBlock: UILabel = {
         let view = UILabel()
         view.textColor = .white
-        view.font = UIFont(name: "Zekton", size: 16)
+        view.font = UIFont(name: FontTitle.zektonFont, size: Metrics.titleInputBlockTextSize)
         view.textAlignment = .left
         
         return view
@@ -26,7 +32,7 @@ class InputBlockView: UIView {
 
     var inputField: UICustomTextField = {
         var view = UICustomTextField()
-        view = view.getCustomTextField(placeholder: "Введите имя")
+        view = view.getCustomTextField(placeholder: StringConstants.inputFieldPlaceholderText)
         
         return view
     }()
@@ -52,7 +58,7 @@ class InputBlockView: UIView {
     }
     
     func getNamePlayer() -> String {
-        inputField.text ?? ""
+        inputField.text ?? String()
     }
 }
 
@@ -77,7 +83,7 @@ private extension InputBlockView {
         }
         
         inputField.snp.makeConstraints { make in
-            make.top.equalTo(titleInputBlock.snp.bottom).offset(10)
+            make.top.equalTo(titleInputBlock.snp.bottom).offset(Metrics.inputFieldTopOffset)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }

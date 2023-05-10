@@ -13,11 +13,14 @@ class FieldGameView: UIView {
     // MARK: - Private properties
     
     private enum Metrics {
+        static let cornerRaduisView: CGFloat = 8
+        
         static let sizeLine: CGFloat = 4
         static let lineVerticalInset: CGFloat = 13
         static let lineHorizontalInset: CGFloat = 13
-        static let imageVerticalInset: CGFloat = 20
-        static let imageHorizontalInset: CGFloat = 20
+        
+        static let imageVerticalInset: CGFloat = 15
+        static let imageHorizontalInset: CGFloat = 15
         
         static let sizeFieldGame: CGFloat = UIScreen.main.bounds.width - 24 * 2
         static let widthCell: CGFloat = (sizeFieldGame - sizeLine * 2) / 3
@@ -55,7 +58,7 @@ class FieldGameView: UIView {
     
     private func setupImageConstraints(image: UIImageView, positionX: CGFloat, positionY: CGFloat) {
         image.snp.makeConstraints { make in
-            make.size.equalTo(Metrics.widthCell - 15 * 4)
+            make.size.equalTo(Metrics.widthCell - (Metrics.imageVerticalInset * 2 + Metrics.imageHorizontalInset * 2))
             make.centerX.equalTo(positionX)
             make.centerY.equalTo(positionY)
         }
@@ -65,7 +68,7 @@ class FieldGameView: UIView {
     // MARK: - Public methods
     
     func addCrossImage(positionX: CGFloat, positionY: CGFloat) {
-        let image = UIImageView(image: UIImage(named: "Cross"))
+        let image = UIImageView(image: UIImage(named: ImageTitleConstants.imageCross))
         image.contentMode = .scaleAspectFit
         
         self.addSubview(image)
@@ -74,7 +77,7 @@ class FieldGameView: UIView {
     }
     
     func addCircleImage(positionX: CGFloat, positionY: CGFloat) {
-        let image = UIImageView(image: UIImage(named: "Circle"))
+        let image = UIImageView(image: UIImage(named: ImageTitleConstants.imageCircle))
         image.contentMode = .scaleAspectFit
         
         self.addSubview(image)
@@ -105,7 +108,7 @@ private extension FieldGameView {
     
     func configureUI() {
         self.backgroundColor = .backgroundFieldGame
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = Metrics.cornerRaduisView
         self.bounds.size = CGSize(width: Metrics.sizeFieldGame, height: Metrics.sizeFieldGame)
     }
     

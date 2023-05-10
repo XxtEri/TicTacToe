@@ -113,8 +113,8 @@ extension MainScreenViewController: MainScreenViewControllerProtocol {
             errors.append("\n" + message + "\n")
         }
         
-        let alertController = UIAlertController(title: "Внимание!", message: errors, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Закрыть", style: .cancel) { [ weak self ] action in
+        let alertController = UIAlertController(title: StringConstants.titleAlertWithErrorMessage, message: errors, preferredStyle: .alert)
+        let action = UIAlertAction(title: StringConstants.titleButtonCancelOfAlert, style: .cancel) { [ weak self ] action in
             guard let self = self else { return }
             
             self.setEnabledButton(enabled: true)
