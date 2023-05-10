@@ -53,7 +53,7 @@ class GameScreenViewController: UIViewController {
     
     private func showAlert(title: String, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.editButtonItem.tintColor = .accentColorApplication
+        alert.view.tintColor = .accentColorApplication
         
         let alertActionGoToStartScreen = UIAlertAction(title: StringConstants.buttonGoMainScreen, style: .default) { [ weak self ]_ in
             guard let self = self else { return }
