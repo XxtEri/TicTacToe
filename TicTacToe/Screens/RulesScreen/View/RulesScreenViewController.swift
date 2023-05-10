@@ -7,11 +7,19 @@
 
 import UIKit
 
-class RulesScreenViewController: UIViewController {
+class RulesScreenViewController: UIViewController, RulesScreenViewControllerProtocol {
+    
+    // MARK: - Private properties
     
     private var ui: RulesScreenView
     
+    
+    // MARK: - Public properties
+    
     var presenter: RulesScreenPresenterProtocol
+    
+    
+    // MARK: - Inits
     
     init(presenter: RulesScreenPresenterProtocol) {
         self.presenter = presenter
@@ -24,6 +32,8 @@ class RulesScreenViewController: UIViewController {
         fatalError("error")
     }
     
+    // MARK: - Lifecycle
+    
     override func loadView() {
         self.view = ui
     }
@@ -34,6 +44,9 @@ class RulesScreenViewController: UIViewController {
         handler()
     }
     
+    
+    // MARK: - Private methods
+    
     private func handler() {
         ui.arrowBackTappedHandler = { [ weak self ] in
             guard let self = self else { return }
@@ -41,8 +54,4 @@ class RulesScreenViewController: UIViewController {
             self.presenter.backToMainScreen()
         }
     }
-}
-
-extension RulesScreenViewController: RulesScreenViewControllerProtocol {
-    
 }

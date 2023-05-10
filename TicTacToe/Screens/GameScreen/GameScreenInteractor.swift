@@ -8,10 +8,16 @@
 import Foundation
 
 final class GameScreenInteractor {
+    
+    // MARK: - Public properties
+    
     weak var presenter: GameScreenPresenterProtocol?
-    var businessLogic: GameBusinessLogic
+    var businessLogic: GameBusinessLogicProtocol
     var nameFirstPlayer: String
     var nameSecondPlayer: String
+    
+    
+    // MARK: - Inits
     
     init(namesPlayers: (String, String)) {
         businessLogic = GameBusinessLogic()
@@ -20,6 +26,9 @@ final class GameScreenInteractor {
         
         handler()
     }
+    
+    
+    // MARK: - Private methods
     
     private func handler() {
         businessLogic.gameOverWinHandler = { [ weak self ] winPlayerShape in
@@ -36,6 +45,9 @@ final class GameScreenInteractor {
     }
 }
 
+
+// MARK: - Private extensions
+
 private extension GameScreenInteractor {
     func saveNewShape(row: Int, column: Int) {
         businessLogic.saveNewShape(row: row, column: column)
@@ -45,6 +57,9 @@ private extension GameScreenInteractor {
         businessLogic.changeCurrentPlayer()
     }
 }
+
+
+// MARK: - Public extensions
 
 extension GameScreenInteractor: GameScreenInteractorProtocol {
     func playerEndingTurn(row: Int, column: Int) {

@@ -8,15 +8,23 @@
 import Foundation
 
 class MainScreenPresenter {
+    
+    // MARK: - Public properties
+    
+    weak var view: MainScreenViewControllerProtocol?
     var interactor: MainScreenInteractorProtocol
     var router: MainScreenRouterProtocol
-    weak var view: MainScreenViewControllerProtocol?
+    
+    
+    // MARK: - Inits
     
     init(interactor: MainScreenInteractorProtocol, router: MainScreenRouterProtocol) {
         self.interactor = interactor
         self.router = router
     }
 }
+
+// MARK: - Public extension
 
 extension MainScreenPresenter: MainScreenPresenterProtocol {
     func startGameButtonTapped(firstPlayer: Player, secondPlayer: Player) {

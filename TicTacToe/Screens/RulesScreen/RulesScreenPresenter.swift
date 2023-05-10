@@ -6,15 +6,21 @@
 //
 
 class RulesScreenPresenter {
-    var interactor: RulesScreenInteractorProtocol
-    var router: RulesScreenRouterProtocol
-    weak var view: RulesScreenViewControllerProtocol?
     
-    init(interactor: RulesScreenInteractorProtocol, router: RulesScreenRouterProtocol) {
-        self.interactor = interactor
+    // MARK: - Public properties
+    
+    weak var view: RulesScreenViewControllerProtocol?
+    var router: RulesScreenRouterProtocol
+    
+    
+    // MARK: - Inits
+    
+    init(router: RulesScreenRouterProtocol) {
         self.router = router
     }
 }
+
+// MARK: - Public extension
 
 extension RulesScreenPresenter: RulesScreenPresenterProtocol {
     func backToMainScreen() {
